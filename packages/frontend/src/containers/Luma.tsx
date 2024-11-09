@@ -18,39 +18,14 @@ import { Camera, CineonToneMapping, Scene, WebGLRenderer } from 'three';
 import { Color, DoubleSide, Mesh, MeshStandardMaterial, PlaneGeometry, Texture, Vector3 } from "three";
 
 export default function Luma() {
-  const [notes, setNotes] = useState<Array<NoteType>>([]);
-  const { isAuthenticated } = useAppContext();
-  const [isLoading, setIsLoading] = useState(true);
-
-  let globalGUI: GUI | null = null;
-
-  const nav = useNavigate();
+	let globalGUI: GUI | null = null;
+	const nav = useNavigate();
  
-  const click = () => {
-    console.log("click click");
+	const click = () => {
+		console.log("click click");
 
-    nav("/");
-  }
-
-//   let pixelRatioProxy = {
-// 	get pixelRatio() {
-// 		return renderer.getPixelRatio()
-// 	},
-// 	set pixelRatio(value: number) {
-// 			renderer.setPixelRatio(value);
-
-// 			// update url parameter
-// 			let url = new URL(window.location.href);
-// 			url.searchParams.set('pixelRatio', value.toString());
-// 			window.history.replaceState({}, '', url.href);
-// 		}
-// 	}
-// 	// initial pixel ratio from url parameter if available
-// 	const url = new URL(window.location.href);
-// 	let pixelRatioParam = url.searchParams.get('pixelRatio');
-// 	if (pixelRatioParam != null) {
-// 		pixelRatioProxy.pixelRatio = parseFloat(pixelRatioParam);
-// 	}
+		nav("/");
+	}
 
 	function DemoScene (){
 		// expanded: boolean,
@@ -86,21 +61,20 @@ export default function Luma() {
 		scene.add(createText());
 
 		return <>
-		<PerspectiveCamera />
-		<OrbitControls
-			ref={controlsRef}
-			autoRotate={autoRotate}
-			autoRotateSpeed={0.5}
-			enableDamping={true}
-			// disable auto rotation when user interacts
-			onStart={() => {
-				setAutoRotate(false);
-			}}
-			makeDefault
-		/>
-		{/* {props.demoReactFn && gui && <props.demoReactFn gui={gui} />} */}
-	</>
-
+			<PerspectiveCamera />
+			<OrbitControls
+				ref={controlsRef}
+				autoRotate={autoRotate}
+				autoRotateSpeed={0.5}
+				enableDamping={true}
+				// disable auto rotation when user interacts
+				onStart={() => {
+					setAutoRotate(false);
+				}}
+				makeDefault
+			/>
+			{/* {props.demoReactFn && gui && <props.demoReactFn gui={gui} />} */}
+		</>
 	}
 
 
@@ -108,32 +82,29 @@ export default function Luma() {
 
 
   return (
-	<Canvas
-		gl={{
-			antialias: false,
-			toneMapping: CineonToneMapping,
-		}}
-		key={"1"}
-		style={{
-			minWidth: '10px',
-		}}
-		onPointerDown={(e) => {
-			// prevent text selection
-			e.preventDefault();
-		}}
-	>
-		<AdaptiveDpr pixelated />
-		<DemoScene
-			// key={demoKey}
-			// expanded={!showDocs}
-			// onExpandToggle={(expanded) => {
-			// 	setShowDocs(!expanded);
-			// }}
-			// demoBasicFn={demoBasicFn}
-			// demoReactFn={demoReactFn}
-		/>
+	<>
+		<Button style={{marginTop: '-110px', marginLeft:'-80px'}} onClick={click}>Back</Button>
+		<Canvas
+			gl={{
+				antialias: false,
+				toneMapping: CineonToneMapping,
+			}}
+			key={"1"}
+			style={{
+				minWidth: '10px',
+				height: '100vh',
+				marginTop: '-28px'
+			}}
+			onPointerDown={(e) => {
+				// prevent text selection
+				e.preventDefault();
+			}}
+		>
+			<AdaptiveDpr pixelated />
+			<DemoScene />
+		</Canvas>
+	</>
 
-	</Canvas>
   )
     //   dispose: () => {
     //       // stop worker, free resources
