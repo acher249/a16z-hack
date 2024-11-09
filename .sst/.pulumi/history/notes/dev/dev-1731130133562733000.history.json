@@ -1,7 +1,7 @@
 {
     "kind": "update",
-    "startTime": 1731129406,
-    "message": "aded SST notes app",
+    "startTime": 1731129903,
+    "message": "setting up blank env",
     "environment": {
         "exec.kind": "auto.local",
         "git.author": "Adam Chernick",
@@ -9,7 +9,7 @@
         "git.committer": "Adam Chernick",
         "git.committer.email": "32597382+acher249@users.noreply.github.com",
         "git.dirty": "true",
-        "git.head": "e5c288ccba8cdf6316c8bcb3e78a0cacc5e362f5",
+        "git.head": "55c4b7fdb3f0c028d31b964b0d046b9e13f3cac3",
         "git.headName": "refs/heads/main",
         "pulumi.arch": "arm64",
         "pulumi.env.PULUMI_CONFIG_PASSPHRASE": "set",
@@ -38,9 +38,11 @@
     },
     "version": 0,
     "result": "succeeded",
-    "endTime": 1731129418,
+    "endTime": 1731130133,
     "resourceChanges": {
-        "same": 98,
-        "update": 3
+        "create": 14,
+        "replace": 6,
+        "same": 69,
+        "update": 12
     }
 }

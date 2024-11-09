@@ -1,5 +1,5 @@
 
-  .sst/platform/sst.config.1731129405268.mjs ────────────────────────────────────── 722.4kb ─ 100.0%
+  .sst/platform/sst.config.1731129902688.mjs ────────────────────────────────────── 722.4kb ─ 100.0%
    ├ .sst/platform/src/components/aws/service.ts ─────────────────────────────────── 34.9kb ─── 4.8%
    │  └ .sst/platform/src/components/aws/cluster.ts
    │     └ .sst/platform/src/components/aws/index.ts
@@ -541,13 +541,13 @@
    │        └ .sst/platform/src/components/index.ts
    │           └ .sst/platform/src/auto/run.ts
    │              └ eval.ts
-   ├ <define:$cli> ────────────────────────────────────────────────────────────────── 984b ──── 0.1%
-   │  └ eval.ts
    ├ .sst/platform/src/components/experimental/dev-command.ts ─────────────────────── 975b ──── 0.1%
    │  └ .sst/platform/src/components/experimental/index.ts
    │     └ .sst/platform/src/components/index.ts
    │        └ .sst/platform/src/auto/run.ts
    │           └ eval.ts
+   ├ <define:$cli> ────────────────────────────────────────────────────────────────── 949b ──── 0.1%
+   │  └ eval.ts
    ├ .sst/platform/src/components/cloudflare/helpers/fetch.ts ─────────────────────── 934b ──── 0.1%
    │  └ .sst/platform/src/components/cloudflare/providers/zone-lookup.ts
    │     └ .sst/platform/src/components/cloudflare/worker.ts

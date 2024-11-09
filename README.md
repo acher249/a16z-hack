@@ -69,3 +69,10 @@ sst secret set StripeSecretKey <YOUR_STRIPE_SECRET_TEST_KEY> --stage production
 ---
 
 Join the SST community over on [Discord](https://discord.gg/sst) and follow us on [Twitter](https://twitter.com/SST_dev).
+
+
+// Adam Notes
+ - There is some conflict between running npx sst dev, which deploys infra and starts a local server on local host, and running npx sst deploy --stage dev..
+ - Need to run npx sst deploy --stage dev to get a cloud front distribution... but also need npx sst dev to test locally.. not sure the best dev cycle on this..
+ - It seems like it is working to run npx sst dev first to get the local host running then deploy npx sst deploy --stage dev to get all the resources set..
+ - Confirmed workign in this sequence... saving to dynamodb and all.
