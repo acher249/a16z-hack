@@ -1,0 +1,8 @@
+[
+  {
+    "name": "aws",
+    "package": "@pulumi/aws",
+    "version": "6.58.0",
+    "alias": "aws"
+  }
+]

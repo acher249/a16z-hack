@@ -1,0 +1,48 @@
+{
+    "kind": "update",
+    "startTime": 1731129274,
+    "message": "aded SST notes app",
+    "environment": {
+        "exec.kind": "auto.local",
+        "git.author": "Adam Chernick",
+        "git.author.email": "32597382+acher249@users.noreply.github.com",
+        "git.committer": "Adam Chernick",
+        "git.committer.email": "32597382+acher249@users.noreply.github.com",
+        "git.dirty": "true",
+        "git.head": "e5c288ccba8cdf6316c8bcb3e78a0cacc5e362f5",
+        "git.headName": "refs/heads/main",
+        "pulumi.arch": "arm64",
+        "pulumi.env.PULUMI_CONFIG_PASSPHRASE": "set",
+        "pulumi.env.PULUMI_DEBUG_COMMANDS": "true",
+        "pulumi.env.PULUMI_HOME": "set",
+        "pulumi.env.PULUMI_SKIP_UPDATE_CHECK": "true",
+        "pulumi.flag.event-log": "set",
+        "pulumi.flag.exec-kind": "set",
+        "pulumi.flag.non-interactive": "true",
+        "pulumi.flag.skip-preview": "true",
+        "pulumi.flag.stack": "set",
+        "pulumi.flag.target-dependents": "true",
+        "pulumi.flag.verbose": "set",
+        "pulumi.flag.yes": "true",
+        "pulumi.os": "darwin",
+        "pulumi.version": "v3.136.1",
+        "updatePlan": "false",
+        "vcs.kind": "github.com",
+        "vcs.owner": "acher249",
+        "vcs.repo": "a16z-hack",
+        "vcs.root": ".sst"
+    },
+    "config": {
+        "aws:defaultTags": "{\"tags\":{\"sst:app\":\"notes\",\"sst:stage\":\"dev\"}}",
+        "aws:region": "us-east-1"
+    },
+    "version": 0,
+    "result": "succeeded",
+    "endTime": 1731129613,
+    "resourceChanges": {
+        "delete": 14,
+        "replace": 6,
+        "same": 69,
+        "update": 12
+    }
+}

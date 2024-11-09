@@ -1,0 +1,753 @@
+
+  .sst/platform/sst.config.1731129405268.mjs ────────────────────────────────────── 722.4kb ─ 100.0%
+   ├ .sst/platform/src/components/aws/service.ts ─────────────────────────────────── 34.9kb ─── 4.8%
+   │  └ .sst/platform/src/components/aws/cluster.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/aws/function.ts ────────────────────────────────── 30.9kb ─── 4.3%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/vpc.ts ─────────────────────────────────────── 29.7kb ─── 4.1%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/nextjs.ts ──────────────────────────────────── 29.0kb ─── 4.0%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/service-v1.ts ──────────────────────────────── 25.7kb ─── 3.6%
+   │  └ .sst/platform/src/components/aws/cluster-v1.ts
+   │     └ .sst/platform/src/components/aws/cluster.ts
+   │        └ .sst/platform/src/components/aws/index.ts
+   │           └ .sst/platform/src/components/index.ts
+   │              └ .sst/platform/src/auto/run.ts
+   │                 └ eval.ts
+   ├ .sst/platform/src/components/aws/apigatewayv1.ts ────────────────────────────── 24.1kb ─── 3.3%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/ssr-site.ts ────────────────────────────────── 22.2kb ─── 3.1%
+   │  └ .sst/platform/src/components/aws/react.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/aws/bucket.ts ──────────────────────────────────── 21.5kb ─── 3.0%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/apigatewayv2.ts ────────────────────────────── 21.2kb ─── 2.9%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/component.ts ───────────────────────────────────── 15.7kb ─── 2.2%
+   │  └ .sst/platform/src/components/linkable.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/vpc-v1.ts ──────────────────────────────────── 13.8kb ─── 1.9%
+   │  └ .sst/platform/src/components/aws/vpc.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/aws/postgres.ts ────────────────────────────────── 13.5kb ─── 1.9%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/astro.ts ───────────────────────────────────── 13.5kb ─── 1.9%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/apigateway-websocket.ts ────────────────────── 12.8kb ─── 1.8%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/cognito-user-pool.ts ───────────────────────── 12.3kb ─── 1.7%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/static-site.ts ─────────────────────────────── 11.9kb ─── 1.6%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/remix.ts ───────────────────────────────────── 10.8kb ─── 1.5%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/router.ts ───────────────────────────────────── 9.9kb ─── 1.4%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/cognito-identity-pool.ts ────────────────────── 9.5kb ─── 1.3%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/app-sync.ts ─────────────────────────────────── 9.5kb ─── 1.3%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/react.ts ────────────────────────────────────── 9.5kb ─── 1.3%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/cloudflare/worker.ts ────────────────────────────── 9.4kb ─── 1.3%
+   │  └ .sst/platform/src/components/cloudflare/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/dynamo.ts ───────────────────────────────────── 8.8kb ─── 1.2%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/svelte-kit.ts ───────────────────────────────── 8.7kb ─── 1.2%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/postgres-v1.ts ──────────────────────────────── 8.2kb ─── 1.1%
+   │  └ .sst/platform/src/components/aws/vector.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/aws/bus.ts ──────────────────────────────────────── 8.0kb ─── 1.1%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/email.ts ────────────────────────────────────── 8.0kb ─── 1.1%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/queue.ts ────────────────────────────────────── 7.7kb ─── 1.1%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/util/path-to-regex.ts ──────────────────────────────────────── 7.5kb ─── 1.0%
+   │  └ .sst/platform/src/components/cloudflare/remix.ts
+   │     └ .sst/platform/src/components/cloudflare/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/cloudflare/remix.ts ─────────────────────────────── 7.4kb ─── 1.0%
+   │  └ .sst/platform/src/components/cloudflare/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/runtime/python.ts ──────────────────────────────────────────── 7.4kb ─── 1.0%
+   │  └ .sst/platform/src/components/aws/function.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/aws/cdn.ts ──────────────────────────────────────── 7.2kb ─── 1.0%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/redis.ts ────────────────────────────────────── 7.1kb ─── 1.0%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/sns-topic.ts ────────────────────────────────── 7.1kb ─── 1.0%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/tanstack-start.ts ───────────────────────────── 6.9kb ─── 1.0%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/solid-start.ts ──────────────────────────────── 6.9kb ─── 1.0%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/analog.ts ───────────────────────────────────── 6.9kb ─── 1.0%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/vector.ts ───────────────────────────────────── 6.9kb ─── 1.0%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/app-sync-data-source.ts ─────────────────────── 6.8kb ─── 0.9%
+   │  └ .sst/platform/src/components/aws/app-sync.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/cloudflare/static-site.ts ───────────────────────── 6.4kb ─── 0.9%
+   │  └ .sst/platform/src/components/cloudflare/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/cluster.ts ──────────────────────────────────── 6.2kb ─── 0.9%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/nuxt.ts ─────────────────────────────────────── 6.1kb ─── 0.8%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/cloudflare/ssr-site.ts ──────────────────────────── 5.8kb ─── 0.8%
+   │  └ .sst/platform/src/components/cloudflare/remix.ts
+   │     └ .sst/platform/src/components/cloudflare/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/aws/efs.ts ──────────────────────────────────────── 5.5kb ─── 0.8%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/link.ts ─────────────────────────────────────────── 5.0kb ─── 0.7%
+   │  └ .sst/platform/src/auto/run.ts
+   │     └ eval.ts
+   ├ .sst/platform/src/components/aws/realtime.ts ─────────────────────────────────── 4.8kb ─── 0.7%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/kinesis-stream.ts ───────────────────────────── 4.7kb ─── 0.7%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/cluster-v1.ts ───────────────────────────────── 4.2kb ─── 0.6%
+   │  └ .sst/platform/src/components/aws/cluster.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/aws/apigatewayv2-authorizer.ts ──────────────────── 4.1kb ─── 0.6%
+   │  └ .sst/platform/src/components/aws/apigatewayv2.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/aws/apigatewayv1-authorizer.ts ──────────────────── 4.0kb ─── 0.6%
+   │  └ .sst/platform/src/components/aws/apigatewayv1.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/aws/apigateway-websocket-route.ts ───────────────── 3.8kb ─── 0.5%
+   │  └ .sst/platform/src/components/aws/apigateway-websocket.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/aws/bucket-lambda-subscriber.ts ─────────────────── 3.5kb ─── 0.5%
+   │  └ .sst/platform/src/components/aws/bucket.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/aws/https-redirect.ts ───────────────────────────── 3.5kb ─── 0.5%
+   │  └ .sst/platform/src/components/aws/cdn.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/aws/queue-lambda-subscriber.ts ──────────────────── 3.3kb ─── 0.5%
+   │  └ .sst/platform/src/components/aws/queue.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/linkable.ts ─────────────────────────────────────── 3.2kb ─── 0.4%
+   │  └ .sst/platform/src/components/index.ts
+   │     └ .sst/platform/src/auto/run.ts
+   │        └ eval.ts
+   ├ .sst/platform/src/components/aws/bucket-topic-subscriber.ts ──────────────────── 3.2kb ─── 0.4%
+   │  └ .sst/platform/src/components/aws/bucket.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/aws/apigatewayv1-lambda-route.ts ────────────────── 3.2kb ─── 0.4%
+   │  └ .sst/platform/src/components/aws/apigatewayv1.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/aws/kinesis-stream-lambda-subscriber.ts ─────────── 3.1kb ─── 0.4%
+   │  └ .sst/platform/src/components/aws/kinesis-stream.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/aws/apigatewayv2-lambda-route.ts ────────────────── 3.1kb ─── 0.4%
+   │  └ .sst/platform/src/components/aws/apigatewayv2.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/rpc/rpc.ts ──────────────────────────────────────── 3.1kb ─── 0.4%
+   │  └ .sst/platform/src/components/cloudflare/worker.ts
+   │     └ .sst/platform/src/components/cloudflare/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/aws/dynamo-lambda-subscriber.ts ─────────────────── 2.9kb ─── 0.4%
+   │  └ .sst/platform/src/components/aws/dynamo.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/aws/bus-lambda-subscriber.ts ────────────────────── 2.8kb ─── 0.4%
+   │  └ .sst/platform/src/components/aws/bus.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/aws/realtime-lambda-subscriber.ts ───────────────── 2.8kb ─── 0.4%
+   │  └ .sst/platform/src/components/aws/realtime.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/base/base-static-site.ts ────────────────────────── 2.8kb ─── 0.4%
+   │  └ .sst/platform/src/components/cloudflare/static-site.ts
+   │     └ .sst/platform/src/components/cloudflare/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/aws/sns-topic-lambda-subscriber.ts ──────────────── 2.7kb ─── 0.4%
+   │  └ .sst/platform/src/components/aws/sns-topic.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/base/base-ssr-site.ts ───────────────────────────── 2.7kb ─── 0.4%
+   │  └ .sst/platform/src/components/cloudflare/remix.ts
+   │     └ .sst/platform/src/components/cloudflare/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/aws/cron.ts ─────────────────────────────────────── 2.6kb ─── 0.4%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/bucket-queue-subscriber.ts ──────────────────── 2.5kb ─── 0.3%
+   │  └ .sst/platform/src/components/aws/bucket.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/aws/dns.ts ──────────────────────────────────────── 2.5kb ─── 0.3%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/helpers/arn.ts ──────────────────────────────── 2.5kb ─── 0.3%
+   │  └ .sst/platform/src/components/aws/sns-topic.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/base/base-site.ts ───────────────────────────────── 2.4kb ─── 0.3%
+   │  └ .sst/platform/src/components/cloudflare/static-site.ts
+   │     └ .sst/platform/src/components/cloudflare/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/aws/app-sync-resolver.ts ────────────────────────── 2.4kb ─── 0.3%
+   │  └ .sst/platform/src/components/aws/app-sync.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/aws/dns-validated-certificate.ts ────────────────── 2.4kb ─── 0.3%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/cognito-user-pool-client.ts ─────────────────── 2.3kb ─── 0.3%
+   │  └ .sst/platform/src/components/aws/cognito-user-pool.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/aws/cognito-identity-provider.ts ────────────────── 2.2kb ─── 0.3%
+   │  └ .sst/platform/src/components/aws/cognito-user-pool.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/auto/run.ts ────────────────────────────────────────────────── 2.2kb ─── 0.3%
+   │  └ eval.ts
+   ├ .sst/platform/src/components/aws/index.ts ────────────────────────────────────── 2.2kb ─── 0.3%
+   │  └ .sst/platform/src/components/index.ts
+   │     └ .sst/platform/src/auto/run.ts
+   │        └ eval.ts
+   ├ .sst/platform/src/components/cloudflare/providers/worker-url.ts ──────────────── 2.2kb ─── 0.3%
+   │  └ .sst/platform/src/components/cloudflare/worker.ts
+   │     └ .sst/platform/src/components/cloudflare/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/aws/helpers/function-builder.ts ─────────────────── 2.1kb ─── 0.3%
+   │  └ .sst/platform/src/components/aws/cron.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/aws/apigatewayv1-integration-route.ts ───────────── 2.1kb ─── 0.3%
+   │  └ .sst/platform/src/components/aws/apigatewayv1.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/cloudflare/d1.ts ────────────────────────────────── 2.1kb ─── 0.3%
+   │  └ .sst/platform/src/components/cloudflare/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/sns-topic-queue-subscriber.ts ───────────────── 2.1kb ─── 0.3%
+   │  └ .sst/platform/src/components/aws/sns-topic.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/cloudflare/providers/kv-data.ts ─────────────────── 2.1kb ─── 0.3%
+   │  └ .sst/platform/src/components/cloudflare/static-site.ts
+   │     └ .sst/platform/src/components/cloudflare/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/cloudflare/kv.ts ────────────────────────────────── 2.0kb ─── 0.3%
+   │  └ .sst/platform/src/components/cloudflare/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/cloudflare/bucket.ts ────────────────────────────── 2.0kb ─── 0.3%
+   │  └ .sst/platform/src/components/cloudflare/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/bus-queue-subscriber.ts ─────────────────────── 2.0kb ─── 0.3%
+   │  └ .sst/platform/src/components/aws/bus.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/naming.ts ───────────────────────────────────────── 1.9kb ─── 0.3%
+   │  └ .sst/platform/src/components/component.ts
+   │     └ .sst/platform/src/components/linkable.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/aws/apigatewayv2-private-route.ts ───────────────── 1.9kb ─── 0.3%
+   │  └ .sst/platform/src/components/aws/apigatewayv2.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/secret.ts ───────────────────────────────────────── 1.9kb ─── 0.3%
+   │  └ .sst/platform/src/components/index.ts
+   │     └ .sst/platform/src/auto/run.ts
+   │        └ eval.ts
+   ├ .sst/platform/src/components/aws/apigatewayv2-url-route.ts ───────────────────── 1.8kb ─── 0.2%
+   │  └ .sst/platform/src/components/aws/apigatewayv2.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/cloudflare/providers/zone-lookup.ts ─────────────── 1.6kb ─── 0.2%
+   │  └ .sst/platform/src/components/cloudflare/worker.ts
+   │     └ .sst/platform/src/components/cloudflare/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/cloudflare/queue.ts ─────────────────────────────── 1.6kb ─── 0.2%
+   │  └ .sst/platform/src/components/cloudflare/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/app-sync-function.ts ────────────────────────── 1.6kb ─── 0.2%
+   │  └ .sst/platform/src/components/aws/app-sync.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/cloudflare/auth.ts ──────────────────────────────── 1.5kb ─── 0.2%
+   │  └ .sst/platform/src/components/cloudflare/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/auth.ts ─────────────────────────────────────── 1.5kb ─── 0.2%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ infra/auth.ts ────────────────────────────────────────────────────────────────── 1.4kb ─── 0.2%
+   │  └ sst.config.ts
+   │     └ eval.ts
+   ├ .sst/platform/src/components/aws/apigatewayv1-base-route.ts ──────────────────── 1.3kb ─── 0.2%
+   │  └ .sst/platform/src/components/aws/apigatewayv1-integration-route.ts
+   │     └ .sst/platform/src/components/aws/apigatewayv1.ts
+   │        └ .sst/platform/src/components/aws/index.ts
+   │           └ .sst/platform/src/components/index.ts
+   │              └ .sst/platform/src/auto/run.ts
+   │                 └ eval.ts
+   ├ .sst/platform/src/components/aws/apigatewayv2-base-route.ts ──────────────────── 1.2kb ─── 0.2%
+   │  └ .sst/platform/src/components/aws/apigatewayv2-private-route.ts
+   │     └ .sst/platform/src/components/aws/apigatewayv2.ts
+   │        └ .sst/platform/src/components/aws/index.ts
+   │           └ .sst/platform/src/components/index.ts
+   │              └ .sst/platform/src/auto/run.ts
+   │                 └ eval.ts
+   ├ .sst/platform/src/components/aws/helpers/apigateway-account.ts ───────────────── 1.2kb ─── 0.2%
+   │  └ .sst/platform/src/components/aws/apigateway-websocket.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/aws/helpers/provider.ts ─────────────────────────── 1.1kb ─── 0.2%
+   │  └ .sst/platform/src/components/aws/cdn.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ <define:$cli> ────────────────────────────────────────────────────────────────── 984b ──── 0.1%
+   │  └ eval.ts
+   ├ .sst/platform/src/components/experimental/dev-command.ts ─────────────────────── 975b ──── 0.1%
+   │  └ .sst/platform/src/components/experimental/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/cloudflare/helpers/fetch.ts ─────────────────────── 934b ──── 0.1%
+   │  └ .sst/platform/src/components/cloudflare/providers/zone-lookup.ts
+   │     └ .sst/platform/src/components/cloudflare/worker.ts
+   │        └ .sst/platform/src/components/cloudflare/index.ts
+   │           └ .sst/platform/src/components/index.ts
+   │              └ .sst/platform/src/auto/run.ts
+   │                 └ eval.ts
+   ├ infra/web.ts ─────────────────────────────────────────────────────────────────── 896b ──── 0.1%
+   │  └ sst.config.ts
+   │     └ eval.ts
+   ├ infra/api.ts ─────────────────────────────────────────────────────────────────── 894b ──── 0.1%
+   │  └ sst.config.ts
+   │     └ eval.ts
+   ├ .sst/platform/src/components/aws/bus-base-subscriber.ts ──────────────────────── 865b ──── 0.1%
+   │  └ .sst/platform/src/components/aws/bus-queue-subscriber.ts
+   │     └ .sst/platform/src/components/aws/bus.ts
+   │        └ .sst/platform/src/components/aws/index.ts
+   │           └ .sst/platform/src/components/index.ts
+   │              └ .sst/platform/src/auto/run.ts
+   │                 └ eval.ts
+   ├ .sst/platform/src/components/size.ts ─────────────────────────────────────────── 786b ──── 0.1%
+   │  └ .sst/platform/src/components/aws/postgres.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/util/semaphore.ts ──────────────────────────────────────────── 758b ──── 0.1%
+   │  └ .sst/platform/src/components/base/base-site.ts
+   │     └ .sst/platform/src/components/cloudflare/static-site.ts
+   │        └ .sst/platform/src/components/cloudflare/index.ts
+   │           └ .sst/platform/src/components/index.ts
+   │              └ .sst/platform/src/auto/run.ts
+   │                 └ eval.ts
+   ├ .sst/platform/src/util/compare-semver.ts ─────────────────────────────────────── 739b ──── 0.1%
+   │  └ .sst/platform/src/components/aws/nextjs.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ sst.config.ts ────────────────────────────────────────────────────────────────── 726b ──── 0.1%
+   │  └ eval.ts
+   ├ .sst/platform/src/components/aws/logging.ts ──────────────────────────────────── 707b ──── 0.1%
+   │  └ .sst/platform/src/components/aws/function.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/aws/helpers/subscriber.ts ───────────────────────── 692b ──── 0.1%
+   │  └ .sst/platform/src/components/aws/sns-topic.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/duration.ts ─────────────────────────────────────── 654b ──── 0.1%
+   │  └ .sst/platform/src/components/aws/queue.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/aws/linkable.ts ─────────────────────────────────── 642b ──── 0.1%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/providers/distribution-deployment-waiter.ts ─── 615b ──── 0.1%
+   │  └ .sst/platform/src/components/aws/cdn.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/hint.ts ─────────────────────────────────────────── 607b ──── 0.1%
+   │  └ .sst/platform/src/components/cloudflare/remix.ts
+   │     └ .sst/platform/src/components/cloudflare/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/aws/providers/distribution-invalidation.ts ──────── 602b ──── 0.1%
+   │  └ .sst/platform/src/components/aws/cdn.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ infra/storage.ts ─────────────────────────────────────────────────────────────── 586b ──── 0.1%
+   │  └ sst.config.ts
+   │     └ eval.ts
+   ├ .sst/platform/src/components/aws/providers/hosted-zone-lookup.ts ─────────────── 579b ──── 0.1%
+   │  └ .sst/platform/src/components/aws/dns.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/aws/providers/origin-access-control.ts ──────────── 574b ──── 0.1%
+   │  └ .sst/platform/src/components/aws/static-site.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/aws/iam-edit.ts ─────────────────────────────────── 561b ──── 0.1%
+   │  └ .sst/platform/src/components/aws/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/providers/bucket-files.ts ───────────────────── 524b ──── 0.1%
+   │  └ .sst/platform/src/components/aws/static-site.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/components/aws/providers/vector-table.ts ───────────────────── 524b ──── 0.1%
+   │  └ .sst/platform/src/components/aws/vector.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/util/fs.ts ─────────────────────────────────────────────────── 504b ──── 0.1%
+   │  └ .sst/platform/src/runtime/python.ts
+   │     └ .sst/platform/src/components/aws/function.ts
+   │        └ .sst/platform/src/components/aws/index.ts
+   │           └ .sst/platform/src/components/index.ts
+   │              └ .sst/platform/src/auto/run.ts
+   │                 └ eval.ts
+   ├ .sst/platform/src/shim/run.js ────────────────────────────────────────────────── 432b ──── 0.1%
+   ├ .sst/platform/src/components/providers/run.ts ────────────────────────────────── 413b ──── 0.1%
+   │  └ .sst/platform/src/components/base/base-ssr-site.ts
+   │     └ .sst/platform/src/components/cloudflare/remix.ts
+   │        └ .sst/platform/src/components/cloudflare/index.ts
+   │           └ .sst/platform/src/components/index.ts
+   │              └ .sst/platform/src/auto/run.ts
+   │                 └ eval.ts
+   ├ .sst/platform/src/components/cloudflare/cron.ts ──────────────────────────────── 392b ──── 0.1%
+   │  └ .sst/platform/src/components/cloudflare/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/cloudflare/index.ts ─────────────────────────────── 383b ──── 0.1%
+   │  └ .sst/platform/src/components/index.ts
+   │     └ .sst/platform/src/auto/run.ts
+   │        └ eval.ts
+   ├ .sst/platform/src/components/cpu.ts ──────────────────────────────────────────── 358b ──── 0.0%
+   │  └ .sst/platform/src/components/aws/service.ts
+   │     └ .sst/platform/src/components/aws/cluster.ts
+   │        └ .sst/platform/src/components/aws/index.ts
+   │           └ .sst/platform/src/components/index.ts
+   │              └ .sst/platform/src/auto/run.ts
+   │                 └ eval.ts
+   ├ .sst/platform/src/components/index.ts ────────────────────────────────────────── 350b ──── 0.0%
+   │  └ .sst/platform/src/auto/run.ts
+   │     └ eval.ts
+   ├ .sst/platform/src/components/aws/helpers/bootstrap.ts ────────────────────────── 342b ──── 0.0%
+   │  └ .sst/platform/src/components/aws/function.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ .sst/platform/src/util/lazy.ts ───────────────────────────────────────────────── 332b ──── 0.0%
+   │  └ .sst/platform/src/components/aws/function.ts
+   │     └ .sst/platform/src/components/aws/index.ts
+   │        └ .sst/platform/src/components/index.ts
+   │           └ .sst/platform/src/auto/run.ts
+   │              └ eval.ts
+   ├ <define:$app> ────────────────────────────────────────────────────────────────── 331b ──── 0.0%
+   │  └ eval.ts
+   ├ .sst/platform/src/components/cloudflare/binding.ts ───────────────────────────── 308b ──── 0.0%
+   │  └ .sst/platform/src/components/cloudflare/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/error.ts ────────────────────────────────────────── 300b ──── 0.0%
+   │  └ .sst/platform/src/auto/run.ts
+   │     └ eval.ts
+   ├ .sst/platform/src/components/cloudflare/account-id.ts ────────────────────────── 272b ──── 0.0%
+   │  └ .sst/platform/src/components/cloudflare/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/cloudflare/dns.ts ───────────────────────────────── 271b ──── 0.0%
+   │  └ .sst/platform/src/components/cloudflare/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/aws/permission.ts ───────────────────────────────── 261b ──── 0.0%
+   │  └ .sst/platform/src/auto/run.ts
+   │     └ eval.ts
+   ├ .sst/platform/src/components/vercel/dns.ts ───────────────────────────────────── 259b ──── 0.0%
+   │  └ .sst/platform/src/components/vercel/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/vercel/account-id.ts ────────────────────────────── 248b ──── 0.0%
+   │  └ .sst/platform/src/components/vercel/index.ts
+   │     └ .sst/platform/src/components/index.ts
+   │        └ .sst/platform/src/auto/run.ts
+   │           └ eval.ts
+   ├ .sst/platform/src/components/vercel/index.ts ─────────────────────────────────── 208b ──── 0.0%
+   │  └ .sst/platform/src/components/index.ts
+   │     └ .sst/platform/src/auto/run.ts
+   │        └ eval.ts
+   ├ .sst/platform/src/components/experimental/index.ts ───────────────────────────── 203b ──── 0.0%
+   │  └ .sst/platform/src/components/index.ts
+   │     └ .sst/platform/src/auto/run.ts
+   │        └ eval.ts
+   ├ .sst/platform/src/config.ts ──────────────────────────────────────────────────── 194b ──── 0.0%
+   └ eval.ts ──────────────────────────────────────────────────────────────────────── 125b ──── 0.0%

@@ -42,9 +42,9 @@ sst secret set StripeSecretKey <YOUR_STRIPE_SECRET_TEST_KEY>
 ```
 
 #### Developing Locally
+http://localhost:5173/
 
-From your project root run:
-
+From your project root run: // Ajc: run this for localhost
 ```bash
 npx sst dev
 ```
@@ -56,8 +56,9 @@ This will start your frontend and run your functions [Live](https://ion.sst.dev/
 Run this in the project root to deploy it to prod.
 
 ```bash
-npx sst deploy --stage production
+npx sst deploy --stage prod
 ```
+
 
 Make sure to set your secret for prod as well.
 

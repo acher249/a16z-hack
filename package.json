@@ -10,6 +10,7 @@
     "typescript": "5.3.3"
   },
   "dependencies": {
-    "sst": "^3"
+    "@aws-crypto/sha256-js": "^5.2.0",
+    "sst": "^3.3.7"
   }
 }

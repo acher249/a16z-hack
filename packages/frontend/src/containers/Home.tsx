@@ -3,7 +3,7 @@ import { API } from "aws-amplify";
 import { NoteType } from "../types/note";
 import { onError } from "../lib/errorLib";
 import { BsPencilSquare } from "react-icons/bs";
-import ListGroup from "react-bootstrap/ListGroup";
+import { ListGroup, Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { useAppContext } from "../lib/contextLib";
 import "./Home.css";
@@ -18,14 +18,15 @@ export default function Home() {
       if (!isAuthenticated) {
         return;
       }
-
+    
       try {
-        const notes = await loadNotes();
-        setNotes(notes);
+        const response = await loadNotes();
+        const notesArray = Array.isArray(response) ? response : response.items || [];
+        setNotes(notesArray);
       } catch (e) {
         onError(e);
       }
-
+    
       setIsLoading(false);
     }
 
@@ -38,6 +39,10 @@ export default function Home() {
 
   function formatDate(str: undefined | string) {
     return !str ? "" : new Date(str).toLocaleString();
+  }
+  
+  const click = () => {
+    console.log("click click");
   }
 
   function renderNotesList(notes: NoteType[]) {
@@ -78,6 +83,7 @@ export default function Home() {
       <div className="notes">
         <h2 className="pb-3 mt-4 mb-3 border-bottom">Your Notes</h2>
         <ListGroup>{!isLoading && renderNotesList(notes)}</ListGroup>
+        <Button style={{marginTop: '20px'}} onClick={click}>click</Button>
       </div>
     );
   }

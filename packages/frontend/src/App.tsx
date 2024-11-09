@@ -70,6 +70,7 @@ function App() {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
+        <p>hello</p>
         <AppContext.Provider
           value={{ isAuthenticated, userHasAuthenticated } as AppContextType}
         >

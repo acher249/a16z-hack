@@ -6,6 +6,9 @@ export default defineConfig({
   plugins: [react()],
   build: {
     // NOTE: Needed when deploying
-    chunkSizeWarningLimit: 800,
+    chunkSizeWarningLimit: 800
+    // rollupOptions: {
+    //   external: ['@aws-crypto/sha256-js'],
+    // },
   },
 })
