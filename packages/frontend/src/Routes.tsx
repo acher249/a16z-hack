@@ -8,6 +8,7 @@ import Settings from "./containers/Settings.tsx";
 import NotFound from "./containers/NotFound.tsx";
 import AuthenticatedRoute from "./components/AuthenticatedRoute.tsx";
 import UnauthenticatedRoute from "./components/UnauthenticatedRoute.tsx";
+import Luma from "../src/containers/Luma.tsx";
 
 export default function Links() {
   return (
@@ -34,6 +35,14 @@ export default function Links() {
         element={
           <AuthenticatedRoute>
             <Settings />
+          </AuthenticatedRoute>
+        }
+      />
+      <Route
+        path="/luma"
+        element={
+          <AuthenticatedRoute>
+            <Luma />
           </AuthenticatedRoute>
         }
       />

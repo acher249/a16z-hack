@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { API } from "aws-amplify";
 import { NoteType } from "../types/note";
+import Nav from "react-bootstrap/Nav";
+import { useNavigate } from "react-router-dom";
 import { onError } from "../lib/errorLib";
 import { BsPencilSquare } from "react-icons/bs";
 import { ListGroup, Button } from "react-bootstrap";
@@ -12,6 +14,7 @@ export default function Home() {
   const [notes, setNotes] = useState<Array<NoteType>>([]);
   const { isAuthenticated } = useAppContext();
   const [isLoading, setIsLoading] = useState(true);
+  const nav = useNavigate();
 
   useEffect(() => {
     async function onLoad() {
@@ -41,8 +44,10 @@ export default function Home() {
     return !str ? "" : new Date(str).toLocaleString();
   }
   
-  const click = () => {
+  const goToLumaPage = () => {
     console.log("click click");
+
+    nav("/luma");
   }
 
   function renderNotesList(notes: NoteType[]) {
@@ -72,7 +77,7 @@ export default function Home() {
   function renderLander() {
     return (
       <div className="lander">
-        <h1>Scratch</h1>
+        <h1>HistoryAlive</h1>
         <p className="text-muted">A simple note taking app</p>
       </div>
     );
@@ -81,9 +86,9 @@ export default function Home() {
   function renderNotes() {
     return (
       <div className="notes">
-        <h2 className="pb-3 mt-4 mb-3 border-bottom">Your Notes</h2>
-        <ListGroup>{!isLoading && renderNotesList(notes)}</ListGroup>
-        <Button style={{marginTop: '20px'}} onClick={click}>click</Button>
+        <h2 className="pb-3 mt-4 mb-3 border-bottom">Explore Collections</h2>
+        {/* <ListGroup>{!isLoading && renderNotesList(notes)}</ListGroup> */}
+        <Button style={{marginTop: '20px'}} onClick={goToLumaPage}>Go To Luma</Button>
       </div>
     );
   }

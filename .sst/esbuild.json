@@ -1,12 +1,12 @@
 
-  .sst/platform/sst.config.1731129902688.mjs ────────────────────────────────────── 722.4kb ─ 100.0%
+  .sst/platform/sst.config.1731189296164.mjs ────────────────────────────────────── 721.9kb ─ 100.0%
    ├ .sst/platform/src/components/aws/service.ts ─────────────────────────────────── 34.9kb ─── 4.8%
    │  └ .sst/platform/src/components/aws/cluster.ts
    │     └ .sst/platform/src/components/aws/index.ts
    │        └ .sst/platform/src/components/index.ts
    │           └ .sst/platform/src/auto/run.ts
    │              └ eval.ts
-   ├ .sst/platform/src/components/aws/function.ts ────────────────────────────────── 30.9kb ─── 4.3%
+   ├ .sst/platform/src/components/aws/function.ts ────────────────────────────────── 31.0kb ─── 4.3%
    │  └ .sst/platform/src/components/aws/index.ts
    │     └ .sst/platform/src/components/index.ts
    │        └ .sst/platform/src/auto/run.ts
@@ -21,7 +21,7 @@
    │     └ .sst/platform/src/components/index.ts
    │        └ .sst/platform/src/auto/run.ts
    │           └ eval.ts
-   ├ .sst/platform/src/components/aws/service-v1.ts ──────────────────────────────── 25.7kb ─── 3.6%
+   ├ .sst/platform/src/components/aws/service-v1.ts ──────────────────────────────── 25.8kb ─── 3.6%
    │  └ .sst/platform/src/components/aws/cluster-v1.ts
    │     └ .sst/platform/src/components/aws/cluster.ts
    │        └ .sst/platform/src/components/aws/index.ts
@@ -60,12 +60,12 @@
    │        └ .sst/platform/src/components/index.ts
    │           └ .sst/platform/src/auto/run.ts
    │              └ eval.ts
-   ├ .sst/platform/src/components/aws/postgres.ts ────────────────────────────────── 13.5kb ─── 1.9%
+   ├ .sst/platform/src/components/aws/astro.ts ───────────────────────────────────── 13.5kb ─── 1.9%
    │  └ .sst/platform/src/components/aws/index.ts
    │     └ .sst/platform/src/components/index.ts
    │        └ .sst/platform/src/auto/run.ts
    │           └ eval.ts
-   ├ .sst/platform/src/components/aws/astro.ts ───────────────────────────────────── 13.5kb ─── 1.9%
+   ├ .sst/platform/src/components/aws/postgres.ts ────────────────────────────────── 13.5kb ─── 1.9%
    │  └ .sst/platform/src/components/aws/index.ts
    │     └ .sst/platform/src/components/index.ts
    │        └ .sst/platform/src/auto/run.ts
@@ -110,7 +110,7 @@
    │     └ .sst/platform/src/components/index.ts
    │        └ .sst/platform/src/auto/run.ts
    │           └ eval.ts
-   ├ .sst/platform/src/components/cloudflare/worker.ts ────────────────────────────── 9.4kb ─── 1.3%
+   ├ .sst/platform/src/components/cloudflare/worker.ts ────────────────────────────── 9.5kb ─── 1.3%
    │  └ .sst/platform/src/components/cloudflare/index.ts
    │     └ .sst/platform/src/components/index.ts
    │        └ .sst/platform/src/auto/run.ts
@@ -546,7 +546,7 @@
    │     └ .sst/platform/src/components/index.ts
    │        └ .sst/platform/src/auto/run.ts
    │           └ eval.ts
-   ├ <define:$cli> ────────────────────────────────────────────────────────────────── 949b ──── 0.1%
+   ├ <define:$cli> ────────────────────────────────────────────────────────────────── 967b ──── 0.1%
    │  └ eval.ts
    ├ .sst/platform/src/components/cloudflare/helpers/fetch.ts ─────────────────────── 934b ──── 0.1%
    │  └ .sst/platform/src/components/cloudflare/providers/zone-lookup.ts
@@ -615,12 +615,6 @@
    ├ .sst/platform/src/components/aws/providers/distribution-deployment-waiter.ts ─── 615b ──── 0.1%
    │  └ .sst/platform/src/components/aws/cdn.ts
    │     └ .sst/platform/src/components/aws/index.ts
-   │        └ .sst/platform/src/components/index.ts
-   │           └ .sst/platform/src/auto/run.ts
-   │              └ eval.ts
-   ├ .sst/platform/src/components/hint.ts ─────────────────────────────────────────── 607b ──── 0.1%
-   │  └ .sst/platform/src/components/cloudflare/remix.ts
-   │     └ .sst/platform/src/components/cloudflare/index.ts
    │        └ .sst/platform/src/components/index.ts
    │           └ .sst/platform/src/auto/run.ts
    │              └ eval.ts

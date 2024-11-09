@@ -45,7 +45,7 @@ function App() {
       <div className="App container py-3">
         <Navbar collapseOnSelect bg="light" expand="md" className="mb-3 px-3">
           <LinkContainer to="/">
-            <Navbar.Brand className="fw-bold text-muted">Scratch</Navbar.Brand>
+            <Navbar.Brand className="fw-bold text-muted">History Live</Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
@@ -70,11 +70,12 @@ function App() {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-        <p>hello</p>
         <AppContext.Provider
           value={{ isAuthenticated, userHasAuthenticated } as AppContextType}
         >
-          <Routes />
+          <Routes
+          
+          />
         </AppContext.Provider>
       </div>
     )
