@@ -1,7 +1,7 @@
 {
     "kind": "update",
-    "startTime": 1731190018,
-    "message": "integrated luma webgl library",
+    "startTime": 1731191578,
+    "message": "luma 3d working",
     "environment": {
         "exec.kind": "auto.local",
         "git.author": "Adam Chernick",
@@ -9,7 +9,7 @@
         "git.committer": "Adam Chernick",
         "git.committer.email": "32597382+acher249@users.noreply.github.com",
         "git.dirty": "true",
-        "git.head": "a06c3bd9460ce6c7803d18ca24cb078adffaf86c",
+        "git.head": "06f6753e3cc723b3e06be27c359ef40a67eadf30",
         "git.headName": "refs/heads/main",
         "pulumi.arch": "arm64",
         "pulumi.env.PULUMI_CONFIG_PASSPHRASE": "set",
@@ -38,8 +38,11 @@
     },
     "version": 0,
     "result": "succeeded",
-    "endTime": 1731190023,
+    "endTime": 1731191591,
     "resourceChanges": {
-        "same": 87
+        "delete": 4,
+        "replace": 6,
+        "same": 69,
+        "update": 12
     }
 }
