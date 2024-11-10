@@ -50,6 +50,13 @@ export default function Home() {
     nav("/luma");
   }
 
+  const callGetSignedUrl = async () => {
+    const response = await API.get("notes", "/signed-url", {});
+    console.log("data", response);
+    const signedUrl = response.signedUrl;
+    console.log("signedUrl", signedUrl);
+  }
+
   function renderNotesList(notes: NoteType[]) {
     return (
       <>
@@ -89,6 +96,7 @@ export default function Home() {
         <h2 className="pb-3 mt-4 mb-3 border-bottom">Explore Collections</h2>
         {/* <ListGroup>{!isLoading && renderNotesList(notes)}</ListGroup> */}
         <Button style={{marginTop: '20px'}} onClick={goToLumaPage}>Go To Luma</Button>
+        <Button style={{marginTop: '20px'}} onClick={callGetSignedUrl}>Get Signed URL</Button>
       </div>
     );
   }
