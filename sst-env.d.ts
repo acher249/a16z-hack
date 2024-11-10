@@ -10,6 +10,10 @@ declare module "sst" {
       "type": "sst.aws.ApiGatewayV2"
       "url": string
     }
+    "CaptionsAPIKey": {
+      "type": "sst.sst.Secret"
+      "value": string
+    }
     "ElevenLabsSecretKey": {
       "type": "sst.sst.Secret"
       "value": string

@@ -1,11 +1,11 @@
-import { table, stripeSecret, elevenLabsSecret } from "./storage";
+import { table, stripeSecret, elevenLabsSecret, captionsAPIKey } from "./storage";
 
 // Create the API
 export const api = new sst.aws.ApiGatewayV2("Api", {
   transform: {
     route: {
       handler: {
-        link: [table, stripeSecret, elevenLabsSecret],
+        link: [table, stripeSecret, elevenLabsSecret, captionsAPIKey],
       },
       args: {
         auth: { iam: true }
