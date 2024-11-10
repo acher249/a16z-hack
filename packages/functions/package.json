@@ -5,6 +5,7 @@
     "@aws-sdk/client-dynamodb": "^3.616.0",
     "@aws-sdk/lib-dynamodb": "^3.616.0",
     "@notes/core": "*",
+    "node-fetch": "^2.6.1",
     "sst": "*",
     "stripe": "^16.4.0",
     "uuid": "^10.0.0"
