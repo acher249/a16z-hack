@@ -18,7 +18,6 @@ export default function LumaCreation() {
 	const nav = useNavigate();
 
 	const [audioUrl, setAudioUrl] = useState('');
-	const [imageUrl, setImageUrl] = useState('');
 
 	const handleSubmit = async () => {
 		console.log('Submitted content:', {
@@ -43,6 +42,10 @@ export default function LumaCreation() {
 	const click = () => {
 		console.log("click click");
 	}
+
+	const handleUrlChange = (event) => {
+        setAudioUrl(event.target.value);
+    };
 
 	function DemoScene() {
 		let { scene, camera } = useThree();
@@ -129,7 +132,9 @@ export default function LumaCreation() {
 					<Form>
 						<Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
 							<Form.Label>Audio File Url</Form.Label>
-							<Form.Control type="text" placeholder="audio.mp3" />
+							<Form.Control type="text" placeholder="audio.mp3" 
+							value={audioUrl}
+                			onChange={handleUrlChange} />
 						</Form.Group>
 					</Form>
 					<Dropdown>
@@ -144,7 +149,7 @@ export default function LumaCreation() {
 						</Dropdown.Menu>
 					</Dropdown>
 
-					<Button style={{marginTop: '20px'}} onClick={handleSubmit}>Start Processing</Button>
+					<Button style={{marginTop: '20px'}} onClick={handleSubmit} disabled={!audioUrl}>Start Processing</Button>
 
 				</Col>
 			</Row>
