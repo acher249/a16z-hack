@@ -17,9 +17,13 @@ export const main = Util.handler(async (event) => {
     try {
         console.log("imageUrl: " + imageUrl);
         let generation = await client.generations.create({
-            prompt: "Pan around the head move it only a fraction of an inch from left and right. Do not over rotate and add anyone else into the frame. And you should pan over VERY VERY slowly.",
+            prompt: "Keep the camera frame still. Don't move it at all please.",
             keyframes: {
                 frame0: {
+                    type: "image",
+                    url: imageUrl
+                },
+                frame1: {
                     type: "image",
                     url: imageUrl
                 }
