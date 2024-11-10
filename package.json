@@ -13,6 +13,7 @@
     "@aws-crypto/sha256-js": "^5.2.0",
     "@react-three/fiber": "^8.17.10",
     "install": "^0.13.0",
+    "lumaai": "^1.1.0",
     "npm": "^10.9.0",
     "sst": "^3.3.7"
   }
