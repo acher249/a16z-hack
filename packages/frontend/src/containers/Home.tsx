@@ -47,10 +47,10 @@ export default function Home() {
           <Container>
             {/* Search Bar */}
             <Row className="my-4">
-              <Col style={{marginTop: '-30px'}}>
+              <Col style={{marginTop: '-26px'}}>
                 <Row>
                   <Col>
-                    <h3 style={{fontFamily: 'Arial'}}>Search The Collection</h3>
+                    <h3 style={{fontFamily: 'Arial'}}>Explore The Collection</h3>
                   </Col>
                   <Col>
                     <Button onClick={goToCreationPage} style={{float: 'right', marginBottom: '10px', marginTop: '6px', borderRadius: "20px",}}>+ Create Living Artifact</Button>
@@ -98,41 +98,48 @@ export default function Home() {
             <Row className="mt-4">
               {[
                 {
-                  title: 'Abstract & Conceptual Art',
+                  title: 'Lucius Verus',
+                  location: 'Metropolitan Museum of Art, NYC, NY',
                   imgSrc: '/luc.png'
                 },
                 {
-                  title: 'Daily Life & Culture',
+                  title: 'Marble Sarcophagus Fragment',
+                  location: 'Metropolitan Museum of Art, NYC, NY',
                   imgSrc: '/multi.png'
                 },
                 {
-                  title: 'Mythology & Religion',
+                  title: 'Nefratiti Bust',
+                  location: 'Neues Museum, Berlin',
                   imgSrc: '/egypt.png'
                 },
                 {
-                  title: 'Nature & Landscapes',
+                  title: 'Mahatma Gandhi',
+                  location: 'Bihar, India',
                   imgSrc: '/gandi.png'
                 },
                 {
-                  title: 'Portraits & Sculptures',
+                  title: 'Stone Henge',
+                  location: 'Wiltshire, England',
                   imgSrc: 'stone.png'
                 },
                 {
-                  title: 'War & Conflict',
+                  title: 'Triceretops Skull',
+                  location: 'Natural History Museum, NYC, NY',
                   imgSrc: 'tri.png'
                 },
               ].map((object, idx) => (
                 <Col key={idx} md={4} className="mb-4">
                   <Card className="text-center" style={{ backgroundColor: '#FFFFFF', borderRadius: "20px" }}>
                     <Card.Body>
-                      <Card.Title>{object.title}</Card.Title>
                       <img 
                         src={object.imgSrc}
                         style={{width:'100%', height: '230px', marginTop: '20px', borderRadius: "20px"}}
                         ></img>
+                      <Card.Title style={{marginTop:'20px'}}>{object.title}</Card.Title>
+                      <p>{object.location}</p>
                       <Button 
                         variant="primary"
-                        style={{marginTop:'20px', borderRadius: "20px"}}
+                        style={{marginTop:'0px', borderRadius: "20px", width: '100px'}}
                         onClick={goToLumaPage}
                         >Jump In</Button>
                     </Card.Body>

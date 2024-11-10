@@ -150,6 +150,24 @@ export default function Luma() {
                     justifyContent: "center",
                     zIndex: 1,
                 }}>
+                    {/* <video
+                        src="/result.mp4"
+                        autoPlay
+                        loop={false} // Only play once
+                        playsInline
+                        onEnded={(e) => handleVideoEnded(e.currentTarget)}
+                        style={{
+                            position: "absolute",
+                            top: "41%",
+                            left: "48%",
+                            transform: "translate(-50%, -50%)",
+                            width: "800px",
+                            height: "480px",
+                            zIndex: 1,
+                            objectFit: "cover",
+                            // opacity: '50%'
+                        }}
+                    /> */}
                     <video
                         src="/result.mp4"
                         autoPlay
@@ -158,15 +176,76 @@ export default function Luma() {
                         onEnded={(e) => handleVideoEnded(e.currentTarget)}
                         style={{
                             position: "absolute",
-                            top: "46%",
-                            left: "50%",
+                            // opacity: '50%',
+                            top: "41.5%",
+                            left: "47.7%",
                             transform: "translate(-50%, -50%)",
-                            width: "940px",
-                            height: "620px",
+                            width: "954px",
+                            height: "520px",
                             zIndex: 1,
                             objectFit: "cover",
+                            maskImage: "radial-gradient(ellipse farthest-side, rgba(0, 0, 0, 1) 98%, rgba(0, 0, 0, 0) 100%)",
+                            WebkitMaskImage: "radial-gradient(ellipse farthest-side, rgba(0, 0, 0, 1) 98%, rgba(0, 0, 0, 0) 100%)", // Safari support
+
+                            // maskImage: "radial-gradient(ellipse farthest-side, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 99%)",
+                            // WebkitMaskImage: "radial-gradient(ellipse farthest-side, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 96%)", // Safari support
                         }}
                     />
+                    {/* <video
+                        src="/result.mp4"
+                        autoPlay
+                        loop={false} // Only play once
+                        playsInline
+                        onEnded={(e) => handleVideoEnded(e.currentTarget)}
+                        style={{
+                            position: "absolute",
+                            // opacity: '50%',
+                            top: "41.5%",
+                            left: "47.7%",
+                            transform: "translate(-50%, -50%)",
+                            width: "944px",
+                            height: "520px",
+                            zIndex: 1,
+                            objectFit: "cover",
+                            maskImage: `
+                                linear-gradient(to right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0.1)),
+                                linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0.1))
+                            `,
+                            WebkitMaskImage: `
+                                linear-gradient(to right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0.1)),
+                                linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0.1))
+                            `, // Safari support
+                        }}
+                    /> */}
+                    {/* <video
+                        src="/result.mp4"
+                        autoPlay
+                        loop={false} // Only play once
+                        playsInline
+                        onEnded={(e) => handleVideoEnded(e.currentTarget)}
+                        style={{
+                            position: "absolute",
+                            top: "41.5%",
+                            left: "47.7%",
+                            transform: "translate(-50%, -50%)",
+                            width: "944px",
+                            height: "520px",
+                            zIndex: 1,
+                            objectFit: "cover",
+                            maskImage: `
+                                linear-gradient(to right, rgba(0, 0, 0, 1) 98%, rgba(0, 0, 0, 0)),
+                                linear-gradient(to left, rgba(0, 0, 0, 1) 98%, rgba(0, 0, 0, 0)),
+                                linear-gradient(to bottom, rgba(0, 0, 0, 1) 98%, rgba(0, 0, 0, 0)),
+                                linear-gradient(to top, rgba(0, 0, 0, 1) 98%, rgba(0, 0, 0, 0))
+                            `,
+                            WebkitMaskImage: `
+                                linear-gradient(to right, rgba(0, 0, 0, 1) 98%, rgba(0, 0, 0, 0)),
+                                linear-gradient(to left, rgba(0, 0, 0, 1) 98%, rgba(0, 0, 0, 0)),
+                                linear-gradient(to bottom, rgba(0, 0, 0, 1) 98%, rgba(0, 0, 0, 0)),
+                                linear-gradient(to top, rgba(0, 0, 0, 1) 98%, rgba(0, 0, 0, 0))
+                            `, // Safari support
+                        }}
+                    /> */}
                 </div>
             )}
 

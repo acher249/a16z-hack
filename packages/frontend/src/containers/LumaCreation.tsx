@@ -41,6 +41,8 @@ export default function LumaCreation() {
 
 	const click = () => {
 		console.log("click click");
+
+		nav("/");
 	}
 
 	const handleUrlChange = (event) => {
@@ -83,11 +85,11 @@ export default function LumaCreation() {
 
 	return (
 		<>
-			<Button style={{marginTop: '-110px', marginLeft:'-80px'}} onClick={click}>Back</Button>
+			<Button style={{marginTop: '-110px', marginLeft:'-80px', borderRadius: "20px"}} onClick={click}>Back</Button>
 			<h4 style={{marginTop: '-28px', marginBottom: '36px', fontFamily:'Arial'}}>+ Create Living Artifact</h4>
 			<Row>
 				<Col>
-					<div style={{ position: 'relative', width: '60vw', height: '60vh' }}>
+					<div style={{ position: 'relative', width: '50vw', height: '60vh' }}>
 						{/* White Frame */}
 						{/* Centered White Rectangle Overlay */}
 						<div style={{
@@ -97,7 +99,7 @@ export default function LumaCreation() {
 							transform: 'translate(-50%, -50%)', // Centers the rectangle
 							width: '90%', // Set desired width (e.g., 50% of canvas width)
 							height: '90%', // Set desired height (e.g., 50% of canvas height)
-							border: '2px solid white',
+							border: '4px solid white',
 							backgroundColor: 'rgba(255, 255, 255, 0.1)', // Slightly transparent background
 							pointerEvents: 'none', // Allows interaction with the canvas below
 							zIndex: 10, // Ensures the rectangle is on top of the canvas
@@ -138,7 +140,7 @@ export default function LumaCreation() {
 						</Form.Group>
 					</Form>
 					<Dropdown>
-						<Dropdown.Toggle id="dropdown-basic">
+						<Dropdown.Toggle style={{marginTop: '0px', borderRadius: "20px"}} id="dropdown-basic">
 							Age Range
 						</Dropdown.Toggle>
 
@@ -149,7 +151,7 @@ export default function LumaCreation() {
 						</Dropdown.Menu>
 					</Dropdown>
 
-					<Button style={{marginTop: '20px'}} onClick={handleSubmit} disabled={!audioUrl}>Start Processing</Button>
+					<Button style={{marginTop: '20px', borderRadius: "20px"}} onClick={handleSubmit} disabled={!audioUrl}>Piertotum Locomotor</Button>
 
 				</Col>
 			</Row>
