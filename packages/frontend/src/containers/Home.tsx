@@ -53,7 +53,7 @@ export default function Home() {
                     <h3 style={{fontFamily: 'Arial'}}>Search The Collection</h3>
                   </Col>
                   <Col>
-                    <Button onClick={goToCreationPage} style={{float: 'right', marginBottom: '10px'}}>+ Create Living Artifact</Button>
+                    <Button onClick={goToCreationPage} style={{float: 'right', marginBottom: '10px', marginTop: '6px', borderRadius: "20px",}}>+ Create Living Artifact</Button>
                   </Col>
                 </Row>
 
@@ -123,16 +123,16 @@ export default function Home() {
                 },
               ].map((object, idx) => (
                 <Col key={idx} md={4} className="mb-4">
-                  <Card className="text-center" style={{ backgroundColor: '#FFFFFF' }}>
+                  <Card className="text-center" style={{ backgroundColor: '#FFFFFF', borderRadius: "20px" }}>
                     <Card.Body>
                       <Card.Title>{object.title}</Card.Title>
                       <img 
                         src={object.imgSrc}
-                        style={{width:'100%', height: '230px', marginTop: '20px'}}
+                        style={{width:'100%', height: '230px', marginTop: '20px', borderRadius: "20px"}}
                         ></img>
                       <Button 
                         variant="primary"
-                        style={{marginTop:'20px'}}
+                        style={{marginTop:'20px', borderRadius: "20px"}}
                         onClick={goToLumaPage}
                         >Jump In</Button>
                     </Card.Body>

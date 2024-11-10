@@ -110,8 +110,8 @@ export default function Luma() {
 
     return (
         <div style={{ position: "relative", width: "100%", height: "100vh" }}>
-            <Button style={{marginTop: '-110px', marginLeft:'-80px'}} onClick={handleNavigation}>Back</Button>
-            <Button style={{ position: "absolute", top: 0, left: 10, zIndex: 2 }} onClick={triggerLerp}>Let Lucious Say Hello</Button>
+            <Button style={{marginTop: '-110px', marginLeft:'-80px', borderRadius: "20px",}} onClick={handleNavigation}>Back</Button>
+            <Button style={{ position: "absolute", top: 10, left: 20, zIndex: 2, borderRadius: "20px", }} onClick={triggerLerp}>Let Lucious Say Hello</Button>
             <Canvas 
                 gl={{
                     powerPreference: "high-performance", 
@@ -174,7 +174,7 @@ export default function Luma() {
                     style={{
                         position: "absolute",
                         top: "10px",
-                        right: "10px",
+                        right: "26px",
                         zIndex: 3,
                         display: "flex",
                         alignItems: "center",
