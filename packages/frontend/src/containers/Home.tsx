@@ -47,7 +47,7 @@ export default function Home() {
   const goToLumaPage = () => {
     console.log("click click");
 
-    nav("/luma");
+    nav("/lumaViewer");
   }
 
   const callGetSignedUrl = async () => {
