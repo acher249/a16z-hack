@@ -23,6 +23,11 @@ export default function Home() {
     nav("/lumaViewer");
   }
 
+  const goToCreationPage = () => {
+    console.log("Going to Creation page");
+    nav("/lumaCreation");
+  }
+
   function renderLander() {
     return (
       <div className="lander">
@@ -43,7 +48,15 @@ export default function Home() {
             {/* Search Bar */}
             <Row className="my-4">
               <Col style={{marginTop: '-30px'}}>
-                <h3 style={{fontFamily: 'Arial'}}>Search The Collection</h3>
+                <Row>
+                  <Col>
+                    <h3 style={{fontFamily: 'Arial'}}>Search The Collection</h3>
+                  </Col>
+                  <Col>
+                    <Button onClick={goToCreationPage} style={{float: 'right', marginBottom: '10px'}}>+ Create Living Artifact</Button>
+                  </Col>
+                </Row>
+
                 <InputGroup>
                   <Form.Select aria-label="Search Filter" defaultValue="All Fields">
                     <option>All Fields</option>
