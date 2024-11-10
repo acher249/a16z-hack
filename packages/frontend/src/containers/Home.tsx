@@ -52,9 +52,76 @@ export default function Home() {
 
   const callGetSignedUrl = async () => {
     const response = await API.get("notes", "/signed-url", {});
-    console.log("data", response);
-    const signedUrl = response.signedUrl;
+    console.log("response", response);
+    const data = JSON.parse(response.body);
+    console.log("data", data);
+    const signedUrl = data.signedUrl;
     console.log("signedUrl", signedUrl);
+  }
+
+  const handleTextToSpeech = async () => {
+    try {
+      const response = await API.post("notes", "/tts", {
+        body: {
+          text: "Hello"
+        }
+      });
+      
+      console.log('Raw response:', response);
+      console.log('Response type:', typeof response);
+      console.log('Response body:', response.body);
+      
+      if (response.statusCode !== 200) {
+        throw new Error(response.body.error || 'Failed to generate speech');
+      }
+    
+      // Convert base64 to Uint8Array
+      const binaryData = Uint8Array.from(atob(response.body), c => c.charCodeAt(0));
+      
+      console.log('Binary data length:', binaryData.length);
+      
+      // Create blob from binary data
+      const blob = new Blob([binaryData], { type: 'audio/mpeg' });
+      
+      console.log('Blob size:', blob.size);
+      
+      // Create and trigger download
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'speech.mp3';
+      
+      if (window.navigator.msSaveOrOpenBlob) {
+        window.navigator.msSaveOrOpenBlob(blob, 'speech.mp3');
+      } else {
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
+      
+      // Cleanup
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error("Error generating speech:", error);
+      console.error("Error details:", {
+        name: error.name,
+        message: error.message,
+        stack: error.stack
+      });
+      throw new Error(error instanceof Error ? error.message : 'Failed to generate speech');
+    }
+  };
+  // Optional: Add TypeScript types
+  interface APIResponse {
+    statusCode: number;
+    headers: Record<string, string>;
+    body: string;
+    isBase64Encoded: boolean;
+  }
+  
+  interface ErrorResponse {
+    error: string;
+    details?: string;
   }
 
   function renderNotesList(notes: NoteType[]) {
@@ -97,6 +164,7 @@ export default function Home() {
         {/* <ListGroup>{!isLoading && renderNotesList(notes)}</ListGroup> */}
         <Button style={{marginTop: '20px'}} onClick={goToLumaPage}>Go To Luma</Button>
         <Button style={{marginTop: '20px'}} onClick={callGetSignedUrl}>Get Signed URL</Button>
+        <Button style={{marginTop: '20px'}} onClick={handleTextToSpeech}>Text to Speech</Button>
       </div>
     );
   }

@@ -2,11 +2,13 @@ import { Resource } from "sst";
 import { Util } from "@notes/core/util";
 import fetch from "node-fetch";
 
+const AGENT_ID = 'fDZAiS9NUCtHyn9riiI6'; 
+
 export const main = Util.handler(async (event) => {
   try {
     //elevenlabs agent id is hard coded for now
     const response = await fetch(
-      `https://api.elevenlabs.io/v1/convai/conversation/get_signed_url?agent_id=fDZAiS9NUCtHyn9riiI6`,
+      `https://api.elevenlabs.io/v1/convai/conversation/get_signed_url?agent_id=${AGENT_ID}`,
       {
         method: "GET",
         headers: {
