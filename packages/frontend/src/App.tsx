@@ -45,7 +45,7 @@ function App() {
       <div className="App container py-3">
         <Navbar collapseOnSelect bg="light" expand="md" className="mb-3 px-3">
           <LinkContainer to="/">
-            <Navbar.Brand className="fw-bold text-muted">explAIn</Navbar.Brand>
+            <Navbar.Brand className="fw-bold text-muted"><img style={{width: '120px', height: '40px', marginTop: "-10px", marginBottom: "-10px",}} src='/logo.png'></img></Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
