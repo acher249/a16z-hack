@@ -50,7 +50,7 @@ export default function Home() {
               <Col style={{marginTop: '-26px'}}>
                 <Row>
                   <Col>
-                    <h3 style={{fontFamily: 'Arial'}}>Explore The Collection</h3>
+                    <h4 style={{fontFamily: 'Arial'}}>Explore The Collection</h4>
                   </Col>
                   <Col>
                     <Button onClick={goToCreationPage} style={{float: 'right', marginBottom: '10px', marginTop: '6px', borderRadius: "20px",}}>+ Create Living Artifact</Button>

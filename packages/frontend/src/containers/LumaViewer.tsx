@@ -111,6 +111,7 @@ export default function Luma() {
     return (
         <div style={{ position: "relative", width: "100%", height: "100vh" }}>
             <p style={{ position: "absolute", top: 10, left: 20, zIndex: 2, borderRadius: "20px", color: 'white' }}><b>Let Lucius: </b></p>
+            <p style={{ position: "absolute", bottom: 140, left: 20, zIndex: 2, borderRadius: "20px", color: 'white', fontSize:'40px' }}><b>Lucius Verus (161-169 CE) </b></p>
             <Button style={{marginTop: '-110px', marginLeft:'-80px', borderRadius: "20px",}} onClick={handleNavigation}>Back</Button>
             <Button style={{ position: "absolute", top: 42, left: 20, zIndex: 2, borderRadius: "20px", opacity: '70%' }} onClick={triggerLerp}>Say hello</Button>
             <Button style={{ position: "absolute", top: 82, left: 20, zIndex: 2, borderRadius: "20px", opacity: '70%' }} >Tell you about the Roman Empire</Button>
