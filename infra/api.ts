@@ -21,3 +21,4 @@ api.route("PUT /notes/{id}", "packages/functions/src/update.main");
 api.route("DELETE /notes/{id}", "packages/functions/src/delete.main");
 api.route("POST /billing", "packages/functions/src/billing.main");
 api.route("GET /signed-url", "packages/functions/src/getSignedUrl.main");
+api.route("POST /generate-video", { handler: "packages/functions/src/generate-video.main", dev:false});
