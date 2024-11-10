@@ -27,7 +27,8 @@
     "react-router-dom": "^6.23.0",
     "three": "^0.170.0",
     "three-stdlib": "^2.34.0",
-    "@11labs/client": "latest"
+    "@11labs/client": "latest",
+    "lucide-react": "0.263.1"
   },
   "devDependencies": {
     "@types/bootstrap": "^5.2.6",

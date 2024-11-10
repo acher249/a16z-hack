@@ -5,11 +5,17 @@ import { Canvas, useThree, useFrame } from "@react-three/fiber";
 import { Color, Vector3 } from "three";
 import { Button } from "react-bootstrap";
 import { LumaSplatsThree } from "@lumaai/luma-web";
+import { API } from "aws-amplify";
+import { Conversation } from '@11labs/client';
+import { Mic, MicOff } from 'lucide-react';
 
 export default function LumaViewer() {
     const nav = useNavigate();
     const [lerpToTarget, setLerpToTarget] = useState(false);
     const [showIframe, setShowIframe] = useState(false);
+    const [conversation, setConversation] = useState<any>(null);
+    const [isConnected, setIsConnected] = useState(false);
+    const [conversationMode, setConversationMode] = useState<'speaking' | 'listening' | 'processing' | 'silent'>('silent');
 
     const handleNavigation = () => {
         console.log("Navigating to home page");
@@ -18,6 +24,79 @@ export default function LumaViewer() {
 
     const triggerLerp = () => {
         setLerpToTarget(true);
+    };
+
+    const requestMicrophonePermission = async () => {
+        try {
+            await navigator.mediaDevices.getUserMedia({ audio: true });
+            return true;
+        } catch (error) {
+            console.error('Microphone permission denied:', error);
+            return false;
+        }
+    };
+
+    const getSignedUrl = async () => {
+        try {
+            const response = await API.get("notes", "/signed-url", {});
+            const data = JSON.parse(response.body);
+            return data.signedUrl;
+        } catch (error) {
+            console.error('Error getting signed URL:', error);
+            throw error;
+        }
+    };
+
+    const startConversation = async () => {
+        try {
+            const hasPermission = await requestMicrophonePermission();
+            if (!hasPermission) {
+                alert('Microphone permission is required for the conversation.');
+                return;
+            }
+
+            const signedUrl = await getSignedUrl();
+            
+            const newConversation = await Conversation.startSession({
+                signedUrl: signedUrl,
+                onConnect: () => {
+                    console.log('Connected');
+                    setIsConnected(true);
+                    setConversationMode('listening');
+                },
+                onDisconnect: () => {
+                    console.log('Disconnected');
+                    setIsConnected(false);
+                    setConversationMode('silent');
+                },
+                onError: (error) => {
+                    console.error('Conversation error:', error);
+                },
+                onModeChange: (mode) => {
+                    console.log('Mode changed:', mode);
+                    setConversationMode(mode.mode);
+                }
+            });
+
+            setConversation(newConversation);
+        } catch (error) {
+            console.error('Error starting conversation:', error);
+        }
+    };
+
+    const endConversation = async () => {
+        if (conversation) {
+            await conversation.endSession();
+            setConversation(null);
+        }
+    };
+
+    const toggleConversation = async () => {
+        if (isConnected) {
+            await endConversation();
+        } else {
+            await startConversation();
+        }
     };
 
     return (
@@ -39,24 +118,70 @@ export default function LumaViewer() {
                 <DemoScene lerpToTarget={lerpToTarget} setLerpToTarget={setLerpToTarget} onLerpComplete={() => setShowIframe(true)} />
             </Canvas>
 
-            {/* The iframe overlay, displayed based on showIframe state */}
             {showIframe && (
-                <iframe
-                    title="Video Overlay"
-                    src="/result.mp4"
-                    style={{
-                        position: "absolute",
-                        top: "50%",
-                        left: "50%",
-                        transform: "translate(-50%, -50%)",
-                        width: "640px",
-                        height: "360px",
-                        zIndex: 1,
-                        pointerEvents: "auto",
-                    }}
-                    allow="autoplay; encrypted-media"
-                    allowFullScreen
-                />
+                <div style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backgroundColor: "rgba(0, 0, 0, 0.7)",
+                    zIndex: 1,
+                }}>
+                    {/* Conversation Toggle Button */}
+                    <Button
+                        onClick={toggleConversation}
+                        variant={isConnected ? "danger" : "primary"}
+                        style={{
+                            position: "absolute",
+                            top: "10px",
+                            right: "10px",
+                            zIndex: 3,
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "8px",
+                            padding: "8px 16px",
+                            borderRadius: "20px",
+                            boxShadow: "0 2px 4px rgba(0,0,0,0.2)"
+                        }}
+                    >
+                        {isConnected ? <MicOff size={20} /> : <Mic size={20} />}
+                        {isConnected ? "Stop Conversation" : "Start Conversation"}
+                    </Button>
+
+                    {/* Modal showing conversation mode when active */}
+                    {isConnected && (
+                        <div style={{
+                            position: "absolute",
+                            top: "60px",
+                            right: "10px",
+                            background: "white",
+                            padding: "8px 16px",
+                            borderRadius: "8px",
+                            boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
+                            zIndex: 3
+                        }}>
+                            {conversationMode.charAt(0).toUpperCase() + conversationMode.slice(1)}
+                        </div>
+                    )}
+
+                    {/* Video iframe */}
+                    <iframe
+                        title="Video Overlay"
+                        src="/result.mp4"
+                        style={{
+                            width: "640px",
+                            height: "360px",
+                            border: "none",
+                        }}
+                        allow="autoplay; encrypted-media"
+                        allowFullScreen
+                    />
+                </div>
             )}
         </div>
     );
@@ -81,8 +206,6 @@ function DemoScene({ lerpToTarget, setLerpToTarget, onLerpComplete }: DemoSceneP
             if (lerpStart.current === 0) {
                 startPosition.current.copy(camera.position);
                 lerpStart.current = clock.getElapsedTime();
-                // Disable controls during lerp (optional)
-                // if (controlsRef.current) controlsRef.current.enabled = false;
             }
 
             const elapsed = clock.getElapsedTime() - lerpStart.current;
@@ -96,21 +219,10 @@ function DemoScene({ lerpToTarget, setLerpToTarget, onLerpComplete }: DemoSceneP
                 setLerpToTarget(false);
                 lerpStart.current = 0;
                 camera.position.copy(targetPosition);
-                // if (controlsRef.current) controlsRef.current.enabled = true;
-
-                // Trigger the onLerpComplete callback
                 onLerpComplete();
             }
         }
     });
-
-    useEffect(() => {
-        // Hide the iframe 4 seconds after it’s shown
-        if (lerpToTarget === false) {
-            const timer = setTimeout(() => setShowIframe(false), 4000);
-            return () => clearTimeout(timer); // Cleanup on component unmount or if lerpToTarget changes
-        }
-    }, [lerpToTarget]);
 
     scene.background = new Color("white");
 
