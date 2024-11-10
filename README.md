@@ -1,4 +1,13 @@
-# SST Demo Notes App
+# ExplAIn - Bringing Historic Artifacts Alive
+
+This project was built for the a16z and OpenAI Consumer IA hackathon in NYC on 11/09/2024. This project is an education tool to make learning more fun, allowing anyone to bring historic artifacts alive. For example let a statue of Lucius Verus tell you about himself and the Roman Empire.
+
+Demo Video Here: https://drive.google.com/file/d/1GPcMxVI1bbCewQv0p9UF2x3scWO2iEEQ/view?usp=sharing
+
+This project uses Luma Labs WebGL SDK and scanning technology as well as AI APIs from ElevenLabs and Captions. Built on AWS extending the below SST demo-notes-app (https://github.com/sst/demo-notes-app)
+
+
+# --- built on top of SST's AWS serverless, React,Terraform Notes sample below ----
 
 The [SST Guide](https://sst.dev/guide) is a comprehensive open source tutorial for building and deploying full-stack apps using serverless and React on AWS.
 
@@ -69,10 +78,3 @@ sst secret set StripeSecretKey <YOUR_STRIPE_SECRET_TEST_KEY> --stage production
 ---
 
 Join the SST community over on [Discord](https://discord.gg/sst) and follow us on [Twitter](https://twitter.com/SST_dev).
-
-
-// Adam Notes
- - There is some conflict between running npx sst dev, which deploys infra and starts a local server on local host, and running npx sst deploy --stage dev..
- - Need to run npx sst deploy --stage dev to get a cloud front distribution... but also need npx sst dev to test locally.. not sure the best dev cycle on this..
- - It seems like it is working to run npx sst dev first to get the local host running then deploy npx sst deploy --stage dev to get all the resources set..
- - Confirmed workign in this sequence... saving to dynamodb and all.
