@@ -1,9 +1,27 @@
-.Home .lander {
-  padding: 80px 0;
-  text-align: center;
+/* Add these styles to your Home.css file */
+
+.conversation-interface {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
 }
 
-.Home .lander h1 {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 600;
+.status-indicators {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.conversation-interface.speaking {
+  background-color: #e8f4ff;
+}
+
+.conversation-interface.listening {
+  background-color: #e8ffe8;
+}
+
+.conversation-interface.processing {
+  background-color: #fff8e8;
+}
+
+.connection-status, .mode-status {
+  margin-bottom: 0.5rem;
 }

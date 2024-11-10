@@ -1,13 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { API } from "aws-amplify";
 import { NoteType } from "../types/note";
 import Nav from "react-bootstrap/Nav";
 import { useNavigate } from "react-router-dom";
 import { onError } from "../lib/errorLib";
 import { BsPencilSquare } from "react-icons/bs";
-import { ListGroup, Button } from "react-bootstrap";
+import { ListGroup, Button, Container, Row, Col, Form, InputGroup, Card } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { useAppContext } from "../lib/contextLib";
+import { Conversation } from '@11labs/client';
+
 import "./Home.css";
 
 export default function Home() {
@@ -15,76 +17,21 @@ export default function Home() {
   const { isAuthenticated } = useAppContext();
   const [isLoading, setIsLoading] = useState(true);
   const nav = useNavigate();
-
-  useEffect(() => {
-    async function onLoad() {
-      if (!isAuthenticated) {
-        return;
-      }
-    
-      try {
-        const response = await loadNotes();
-        const notesArray = Array.isArray(response) ? response : response.items || [];
-        setNotes(notesArray);
-      } catch (e) {
-        onError(e);
-      }
-    
-      setIsLoading(false);
-    }
-
-    onLoad();
-  }, [isAuthenticated]);
-
-  function loadNotes() {
-    return API.get("notes", "/notes", {});
-  }
-
-  function formatDate(str: undefined | string) {
-    return !str ? "" : new Date(str).toLocaleString();
-  }
   
   const goToLumaPage = () => {
-    console.log("click click");
-
-    nav("/luma");
+    console.log("Going to Luma page");
+    nav("/lumaViewer");
   }
 
-  const callGetSignedUrl = async () => {
-    const response = await API.get("notes", "/signed-url", {});
-    console.log("data", response);
-    const signedUrl = response.signedUrl;
-    console.log("signedUrl", signedUrl);
-  }
-
-  function renderNotesList(notes: NoteType[]) {
-    return (
-      <>
-        <LinkContainer to="/notes/new">
-          <ListGroup.Item action className="py-3 text-nowrap text-truncate">
-            <BsPencilSquare size={17} />
-            <span className="ms-2 fw-bold">Create a new note</span>
-          </ListGroup.Item>
-        </LinkContainer>
-        {notes.map(({ noteId, content, createdAt }) => (
-          <LinkContainer key={noteId} to={`/notes/${noteId}`}>
-            <ListGroup.Item action className="text-nowrap text-truncate">
-              <span className="fw-bold">{content.trim().split("\n")[0]}</span>
-              <br />
-              <span className="text-muted">
-                Created: {formatDate(createdAt)}
-              </span>
-            </ListGroup.Item>
-          </LinkContainer>
-        ))}
-      </>
-    );
+  const goToCreationPage = () => {
+    console.log("Going to Creation page");
+    nav("/lumaCreation");
   }
 
   function renderLander() {
     return (
       <div className="lander">
-        <h1>HistoryAlive</h1>
+        <h1>explAIn</h1>
         <p className="text-muted">A simple note taking app</p>
       </div>
     );
@@ -93,10 +40,110 @@ export default function Home() {
   function renderNotes() {
     return (
       <div className="notes">
-        <h2 className="pb-3 mt-4 mb-3 border-bottom">Explore Collections</h2>
-        {/* <ListGroup>{!isLoading && renderNotesList(notes)}</ListGroup> */}
-        <Button style={{marginTop: '20px'}} onClick={goToLumaPage}>Go To Luma</Button>
-        <Button style={{marginTop: '20px'}} onClick={callGetSignedUrl}>Get Signed URL</Button>
+        {/* Existing Buttons */}
+        <div className="d-flex gap-2 flex-wrap">
+          {/* <Button onClick={goToLumaPage}>Go To Luma</Button> */}
+
+          <Container>
+            {/* Search Bar */}
+            <Row className="my-4">
+              <Col style={{marginTop: '-30px'}}>
+                <Row>
+                  <Col>
+                    <h3 style={{fontFamily: 'Arial'}}>Search The Collection</h3>
+                  </Col>
+                  <Col>
+                    <Button onClick={goToCreationPage} style={{float: 'right', marginBottom: '10px', marginTop: '6px', borderRadius: "20px",}}>+ Create Living Artifact</Button>
+                  </Col>
+                </Row>
+
+                <InputGroup>
+                  <Form.Select aria-label="Search Filter" defaultValue="All Fields">
+                    <option>All Fields</option>
+                    <option>Object Type / Material</option>
+                    <option>Geographic Location</option>
+                    <option>Date / Era</option>
+                  </Form.Select>
+                  <Form.Control type="text" placeholder="Search all fields" />
+                  <Button variant="outline-secondary">🔍</Button>
+                </InputGroup>
+              </Col>
+            </Row>
+
+            {/* Filter Options */}
+            <Row className="my-4">
+              <Col md={3}>
+                <Form.Select aria-label="Filter by Object Type / Material">
+                  <option>Object Type / Material</option>
+                </Form.Select>
+              </Col>
+              <Col md={3}>
+                <Form.Select aria-label="Filter by Geographic Location">
+                  <option>Geographic Location</option>
+                </Form.Select>
+              </Col>
+              <Col md={3}>
+                <Form.Select aria-label="Filter by Date / Era">
+                  <option>Date / Era</option>
+                </Form.Select>
+              </Col>
+              <Col md={3}>
+                <Button variant="outline-secondary">
+                  Greek and Roman Art <span aria-hidden="true">✖</span>
+                </Button>
+              </Col>
+            </Row>
+
+            {/* Card Grid */}
+            <Row className="mt-4">
+              {[
+                {
+                  title: 'Abstract & Conceptual Art',
+                  imgSrc: '/luc.png'
+                },
+                {
+                  title: 'Daily Life & Culture',
+                  imgSrc: '/multi.png'
+                },
+                {
+                  title: 'Mythology & Religion',
+                  imgSrc: '/egypt.png'
+                },
+                {
+                  title: 'Nature & Landscapes',
+                  imgSrc: '/gandi.png'
+                },
+                {
+                  title: 'Portraits & Sculptures',
+                  imgSrc: 'stone.png'
+                },
+                {
+                  title: 'War & Conflict',
+                  imgSrc: 'tri.png'
+                },
+              ].map((object, idx) => (
+                <Col key={idx} md={4} className="mb-4">
+                  <Card className="text-center" style={{ backgroundColor: '#FFFFFF', borderRadius: "20px" }}>
+                    <Card.Body>
+                      <Card.Title>{object.title}</Card.Title>
+                      <img 
+                        src={object.imgSrc}
+                        style={{width:'100%', height: '230px', marginTop: '20px', borderRadius: "20px"}}
+                        ></img>
+                      <Button 
+                        variant="primary"
+                        style={{marginTop:'20px', borderRadius: "20px"}}
+                        onClick={goToLumaPage}
+                        >Jump In</Button>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              ))}
+            </Row>
+          </Container>
+          {/* <Button onClick={getSignedUrl}>Get Signed URL</Button>
+          <Button onClick={handleTextToSpeech}>Text to Speech</Button> */}
+        </div>
       </div>
     );
   }
