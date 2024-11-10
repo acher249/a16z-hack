@@ -132,6 +132,14 @@ export default function LumaCreation() {
 						</Form.Group>
 					</Form>
 					<Form>
+					<Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+							<Form.Label>Audio Script Text</Form.Label>
+							<Form.Control type="text" placeholder="script text" 
+							value={audioUrl}
+                			onChange={handleUrlChange} />
+						</Form.Group>
+						<Button style={{marginTop: '0px', marginBottom: '10px', borderRadius: "20px"}}>Generate Audio</Button>
+
 						<Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
 							<Form.Label>Audio File Url</Form.Label>
 							<Form.Control type="text" placeholder="audio.mp3" 
