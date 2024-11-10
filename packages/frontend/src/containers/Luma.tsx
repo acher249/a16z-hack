@@ -20,6 +20,8 @@ import { Color, DoubleSide, Mesh, MeshStandardMaterial, PlaneGeometry, Texture, 
 export default function Luma() {
 	let globalGUI: GUI | null = null;
 	const nav = useNavigate();
+	const canvasRef = useRef();
+	const [isReady, setIsReady] = useState(false);
 
 	const [audioUrl, setAudioUrl] = useState('');
 	const [imageUrl, setImageUrl] = useState('');
@@ -31,19 +33,42 @@ export default function Luma() {
 		});
 
 		try {
-			const data = await API.post("notes", "/generate-video", {
-				body: { 
-					imageUrl: imageUrl,
-					audioUrl: audioUrl
-				 },
-			  });
+			// first upload captured image to s3 bucket to get CDN...
+			captureCanvas();
 
-			console.log('Response from Luma:', data);
+			// const data = await API.post("notes", "/generate-video", {
+			// 	body: { 
+			// 		imageUrl: imageUrl,
+			// 		audioUrl: audioUrl
+			// 	 },
+			//   });
+
+			// console.log('Response from Luma:', data);
 		  } catch (error) {
 			console.error('Error generating video:', error);
 		  }
 	  };
  
+	  // Function to capture the canvas
+	const captureCanvas = () => {
+		if (canvasRef.current) {
+			const renderer = canvasRef.current.gl;
+    
+			// Get the rendered content as a Blob
+			renderer.domElement.toBlob((blob) => {
+			const url = URL.createObjectURL(blob);
+			const link = document.createElement('a');
+			link.download = 'screenshot.png';
+			link.href = url;
+			link.click();
+			URL.revokeObjectURL(url);
+			}, 'image/png');
+		}
+		else {
+			console.error('WebGL context not available');
+		}
+	};
+
 	const click = () => {
 		console.log("click click");
 
@@ -100,17 +125,17 @@ export default function Luma() {
 		</>
 	}
 
-
-
-
-
   return (
 	<>
 		<Button style={{marginTop: '-110px', marginLeft:'-80px'}} onClick={click}>Back</Button>
-		<Canvas
+		<Canvas ref={canvasRef}
 			gl={{
 				antialias: false,
 				toneMapping: CineonToneMapping,
+			}}
+			onCreated={({ gl }) => {
+				// Wait until the initial frame has rendered
+				requestAnimationFrame(() => setIsReady(true));
 			}}
 			key={"1"}
 			style={{
@@ -166,7 +191,7 @@ export default function Luma() {
         <button
           onClick={handleSubmit}
           className="w-full bg-blue-500 hover:bg-blue-600 text-black font-medium py-2 px-4 rounded-lg transition-colors"
-          disabled={!audioUrl && !imageUrl && !imageUrl}
+          disabled={!isReady}
         >
           Submit Content
         </button>
