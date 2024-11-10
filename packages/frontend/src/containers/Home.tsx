@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { API } from "aws-amplify";
 import { NoteType } from "../types/note";
 import Nav from "react-bootstrap/Nav";
@@ -8,13 +8,84 @@ import { BsPencilSquare } from "react-icons/bs";
 import { ListGroup, Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { useAppContext } from "../lib/contextLib";
+import { Conversation } from '@11labs/client';
 import "./Home.css";
 
 export default function Home() {
   const [notes, setNotes] = useState<Array<NoteType>>([]);
   const { isAuthenticated } = useAppContext();
   const [isLoading, setIsLoading] = useState(true);
+  const [conversation, setConversation] = useState<any>(null);
+  const [isConnected, setIsConnected] = useState(false);
+  const [conversationMode, setConversationMode] = useState<'speaking' | 'listening' | 'processing' | 'silent'>('silent');
   const nav = useNavigate();
+
+  const requestMicrophonePermission = async () => {
+    try {
+      await navigator.mediaDevices.getUserMedia({ audio: true });
+      return true;
+    } catch (error) {
+      console.error('Microphone permission denied:', error);
+      return false;
+    }
+  };
+
+  const getSignedUrl = async () => {
+    try {
+      const response = await API.get("notes", "/signed-url", {});
+      const data = JSON.parse(response.body);
+      return data.signedUrl;
+    } catch (error) {
+      console.error('Error getting signed URL:', error);
+      throw error;
+    }
+  };
+
+  const startConversation = async () => {
+    try {
+      const hasPermission = await requestMicrophonePermission();
+      if (!hasPermission) {
+        alert('Microphone permission is required for the conversation.');
+        return;
+      }
+
+      const signedUrl = await getSignedUrl();
+      
+      const newConversation = await Conversation.startSession({
+        signedUrl: signedUrl,
+        onConnect: () => {
+          console.log('Connected');
+          setIsConnected(true);
+          setConversationMode('listening');
+        },
+        onDisconnect: () => {
+          console.log('Disconnected');
+          setIsConnected(false);
+          setConversationMode('silent');
+        },
+        onError: (error) => {
+          console.error('Conversation error:', error);
+          onError(error);
+        },
+        onModeChange: (mode) => {
+          console.log('Mode changed:', mode);
+          setConversationMode(mode.mode);
+        }
+      });
+
+      setConversation(newConversation);
+    } catch (error) {
+      console.error('Error starting conversation:', error);
+      onError(error);
+    }
+  };
+
+  const endConversation = async () => {
+    if (conversation) {
+      await conversation.endSession();
+      setConversation(null);
+    }
+  };
 
   useEffect(() => {
     async function onLoad() {
@@ -45,18 +116,7 @@ export default function Home() {
   }
   
   const goToLumaPage = () => {
-    console.log("click click");
-
     nav("/luma");
-  }
-
-  const callGetSignedUrl = async () => {
-    const response = await API.get("notes", "/signed-url", {});
-    console.log("response", response);
-    const data = JSON.parse(response.body);
-    console.log("data", data);
-    const signedUrl = data.signedUrl;
-    console.log("signedUrl", signedUrl);
   }
 
   const handleTextToSpeech = async () => {
@@ -67,25 +127,12 @@ export default function Home() {
         }
       });
       
-      console.log('Raw response:', response);
-      console.log('Response type:', typeof response);
-      console.log('Response body:', response.body);
-      
       if (response.statusCode !== 200) {
         throw new Error(response.body.error || 'Failed to generate speech');
       }
     
-      // Convert base64 to Uint8Array
       const binaryData = Uint8Array.from(atob(response.body), c => c.charCodeAt(0));
-      
-      console.log('Binary data length:', binaryData.length);
-      
-      // Create blob from binary data
       const blob = new Blob([binaryData], { type: 'audio/mpeg' });
-      
-      console.log('Blob size:', blob.size);
-      
-      // Create and trigger download
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
@@ -99,30 +146,12 @@ export default function Home() {
         document.body.removeChild(a);
       }
       
-      // Cleanup
       window.URL.revokeObjectURL(url);
     } catch (error) {
       console.error("Error generating speech:", error);
-      console.error("Error details:", {
-        name: error.name,
-        message: error.message,
-        stack: error.stack
-      });
       throw new Error(error instanceof Error ? error.message : 'Failed to generate speech');
     }
   };
-  // Optional: Add TypeScript types
-  interface APIResponse {
-    statusCode: number;
-    headers: Record<string, string>;
-    body: string;
-    isBase64Encoded: boolean;
-  }
-  
-  interface ErrorResponse {
-    error: string;
-    details?: string;
-  }
 
   function renderNotesList(notes: NoteType[]) {
     return (
@@ -161,10 +190,42 @@ export default function Home() {
     return (
       <div className="notes">
         <h2 className="pb-3 mt-4 mb-3 border-bottom">Explore Collections</h2>
-        {/* <ListGroup>{!isLoading && renderNotesList(notes)}</ListGroup> */}
-        <Button style={{marginTop: '20px'}} onClick={goToLumaPage}>Go To Luma</Button>
-        <Button style={{marginTop: '20px'}} onClick={callGetSignedUrl}>Get Signed URL</Button>
-        <Button style={{marginTop: '20px'}} onClick={handleTextToSpeech}>Text to Speech</Button>
+        
+        {/* Conversation Interface */}
+        <div className={`conversation-interface p-4 mb-4 rounded ${conversationMode}`}>
+          <div className="status-indicators mb-3">
+            <div className="connection-status">
+              Status: {isConnected ? 'Connected' : 'Disconnected'}
+            </div>
+            <div className="mode-status">
+              Mode: {conversationMode.charAt(0).toUpperCase() + conversationMode.slice(1)}
+            </div>
+          </div>
+          
+          <div className="d-flex gap-2">
+            <Button 
+              onClick={startConversation} 
+              disabled={isConnected}
+              variant="primary"
+            >
+              Start Conversation
+            </Button>
+            <Button 
+              onClick={endConversation} 
+              disabled={!isConnected}
+              variant="secondary"
+            >
+              End Conversation
+            </Button>
+          </div>
+        </div>
+
+        {/* Existing Buttons */}
+        <div className="d-flex gap-2 flex-wrap">
+          <Button onClick={goToLumaPage}>Go To Luma</Button>
+          <Button onClick={getSignedUrl}>Get Signed URL</Button>
+          <Button onClick={handleTextToSpeech}>Text to Speech</Button>
+        </div>
       </div>
     );
   }
