@@ -110,8 +110,12 @@ export default function Luma() {
 
     return (
         <div style={{ position: "relative", width: "100%", height: "100vh" }}>
+            <p style={{ position: "absolute", top: 10, left: 20, zIndex: 2, borderRadius: "20px", color: 'white' }}><b>Let Lucius: </b></p>
             <Button style={{marginTop: '-110px', marginLeft:'-80px', borderRadius: "20px",}} onClick={handleNavigation}>Back</Button>
-            <Button style={{ position: "absolute", top: 10, left: 20, zIndex: 2, borderRadius: "20px", }} onClick={triggerLerp}>Let Lucious Say Hello</Button>
+            <Button style={{ position: "absolute", top: 42, left: 20, zIndex: 2, borderRadius: "20px", opacity: '70%' }} onClick={triggerLerp}>Say hello</Button>
+            <Button style={{ position: "absolute", top: 82, left: 20, zIndex: 2, borderRadius: "20px", opacity: '70%' }} >Tell you about the Roman Empire</Button>
+            <Button style={{ position: "absolute", top: 122, left: 20, zIndex: 2, borderRadius: "20px", opacity: '70%' }} >Tell you about agriculture</Button>
+            <Button style={{ position: "absolute", top: 162, left: 20, zIndex: 2, borderRadius: "20px", opacity: '70%' }} >Tell you about the Antonine style</Button>
             <Canvas 
                 gl={{
                     powerPreference: "high-performance", 
