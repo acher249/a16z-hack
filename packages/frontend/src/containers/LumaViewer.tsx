@@ -1,18 +1,20 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { AdaptiveDpr, OrbitControls as DreiOrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { useNavigate } from "react-router-dom";
 import { Canvas, useThree, useFrame } from "@react-three/fiber";
-import { Color, Vector3 } from "three";
+import { Color, Vector3, Quaternion } from "three";
 import { Button } from "react-bootstrap";
 import { LumaSplatsThree } from "@lumaai/luma-web";
+import * as THREE from "three";
 import { API } from "aws-amplify";
 import { Conversation } from '@11labs/client';
 import { Mic, MicOff } from 'lucide-react';
 
-export default function LumaViewer() {
+export default function Luma() {
     const nav = useNavigate();
     const [lerpToTarget, setLerpToTarget] = useState(false);
     const [showIframe, setShowIframe] = useState(false);
+    const [showToggleButton, setShowToggleButton] = useState(false); // State for toggle button visibility
     const [conversation, setConversation] = useState<any>(null);
     const [isConnected, setIsConnected] = useState(false);
     const [conversationMode, setConversationMode] = useState<'speaking' | 'listening' | 'processing' | 'silent'>('silent');
@@ -111,11 +113,22 @@ export default function LumaViewer() {
                     stencil: false,
                     depth: false,
                 }}
-                dpr={[0.5, 1]}
-                style={{ height: "100vh" }}
+                dpr={[0.2, .9]}
+                style={{ height: "88vh"}}
             >
                 <AdaptiveDpr pixelated />
-                <DemoScene lerpToTarget={lerpToTarget} setLerpToTarget={setLerpToTarget} onLerpComplete={() => setShowIframe(true)} />
+                <DemoScene 
+                    lerpToTarget={lerpToTarget} 
+                    setLerpToTarget={setLerpToTarget} 
+                    onLerpComplete={() => {
+                        setShowIframe(true);
+                        setShowToggleButton(false); // Hide toggle button when video starts
+                        setTimeout(() => {
+                            setShowIframe(false);
+                            setShowToggleButton(true); // Show toggle button after video ends
+                        }, 4000); // Hide iframe after 4 seconds
+                    }} 
+                />
             </Canvas>
 
             {showIframe && (
@@ -129,59 +142,49 @@ export default function LumaViewer() {
                     flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center",
-                    backgroundColor: "rgba(0, 0, 0, 0.7)",
                     zIndex: 1,
                 }}>
-                    {/* Conversation Toggle Button */}
-                    <Button
-                        onClick={toggleConversation}
-                        variant={isConnected ? "danger" : "primary"}
-                        style={{
-                            position: "absolute",
-                            top: "10px",
-                            right: "10px",
-                            zIndex: 3,
-                            display: "flex",
-                            alignItems: "center",
-                            gap: "8px",
-                            padding: "8px 16px",
-                            borderRadius: "20px",
-                            boxShadow: "0 2px 4px rgba(0,0,0,0.2)"
-                        }}
-                    >
-                        {isConnected ? <MicOff size={20} /> : <Mic size={20} />}
-                        {isConnected ? "Stop Conversation" : "Start Conversation"}
-                    </Button>
-
-                    {/* Modal showing conversation mode when active */}
-                    {isConnected && (
-                        <div style={{
-                            position: "absolute",
-                            top: "60px",
-                            right: "10px",
-                            background: "white",
-                            padding: "8px 16px",
-                            borderRadius: "8px",
-                            boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
-                            zIndex: 3
-                        }}>
-                            {conversationMode.charAt(0).toUpperCase() + conversationMode.slice(1)}
-                        </div>
-                    )}
-
-                    {/* Video iframe */}
-                    <iframe
-                        title="Video Overlay"
+                    <video
                         src="/result.mp4"
+                        autoPlay
+                        // muted
+                        // loop
+                        playsInline
                         style={{
-                            width: "640px",
-                            height: "360px",
-                            border: "none",
+                            position: "absolute",
+                            top: "46%",
+                            left: "50%",
+                            transform: "translate(-50%, -50%)",
+                            width: "940px",
+                            height: "620px",
+                            zIndex: 1,
+                            objectFit: "cover",
                         }}
-                        allow="autoplay; encrypted-media"
-                        allowFullScreen
                     />
                 </div>
+            )}
+
+            {/* Show toggle button only after the video has turned off */}
+            {showToggleButton && (
+                <Button
+                    onClick={toggleConversation}
+                    variant={isConnected ? "danger" : "primary"}
+                    style={{
+                        position: "absolute",
+                        top: "10px",
+                        right: "10px",
+                        zIndex: 3,
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "8px",
+                        padding: "8px 16px",
+                        borderRadius: "20px",
+                        boxShadow: "0 2px 4px rgba(0,0,0,0.2)"
+                    }}
+                >
+                    {isConnected ? <MicOff size={20} /> : <Mic size={20} />}
+                    {isConnected ? "Stop Conversation" : "Start Conversation"}
+                </Button>
             )}
         </div>
     );
@@ -196,29 +199,39 @@ interface DemoSceneProps {
 function DemoScene({ lerpToTarget, setLerpToTarget, onLerpComplete }: DemoSceneProps) {
     const { scene, camera } = useThree();
     const controlsRef = useRef(null);
-    const targetPosition = new Vector3(1, 1, 1);
-    const lerpDuration = 1.5;
+    const targetPosition = new Vector3(-0.366, 0.210, 3.124);
+    const targetQuaternion = new THREE.Quaternion().setFromEuler(new THREE.Euler(-0.117, -0.082, -0.009));
+    const lerpDuration = 2.5; // Increased duration for smoothness
     const startPosition = useRef(new Vector3());
+    const startQuaternion = useRef(new Quaternion());
     const lerpStart = useRef(0);
+
+    // Quintic easing function for smoother transitions
+    const easeQuintic = (t: number) => t < 0.5 ? 16 * t * t * t * t * t : 1 - Math.pow(-2 * t + 2, 5) / 2;
 
     useFrame(({ clock }) => {
         if (lerpToTarget) {
             if (lerpStart.current === 0) {
                 startPosition.current.copy(camera.position);
+                startQuaternion.current.copy(camera.quaternion);
                 lerpStart.current = clock.getElapsedTime();
             }
 
             const elapsed = clock.getElapsedTime() - lerpStart.current;
             const t = Math.min(elapsed / lerpDuration, 1);
-            const easeInOut = t * t * (3 - 2 * t);
+            const easeT = easeQuintic(t); // Apply quintic easing for smoothness
 
-            camera.position.lerpVectors(startPosition.current, targetPosition, easeInOut);
-            camera.lookAt(0, 0, 0);
+            // Smoothly interpolate position
+            camera.position.lerpVectors(startPosition.current, targetPosition, easeT);
+            // Smoothly interpolate rotation
+            camera.quaternion.slerp(targetQuaternion, easeT);
 
             if (t >= 1) {
                 setLerpToTarget(false);
                 lerpStart.current = 0;
                 camera.position.copy(targetPosition);
+                camera.quaternion.copy(targetQuaternion);
+                
                 onLerpComplete();
             }
         }
@@ -235,7 +248,11 @@ function DemoScene({ lerpToTarget, setLerpToTarget, onLerpComplete }: DemoSceneP
     return (
         <>
             <PerspectiveCamera />
-            <DreiOrbitControls ref={controlsRef} enableDamping makeDefault />
+            <DreiOrbitControls 
+                ref={controlsRef} 
+                zoomSpeed={0.1}
+                enableDamping 
+                makeDefault />
         </>
     );
 }
